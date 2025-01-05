@@ -34,4 +34,4 @@ I aim to build a program that can take an OpenAPI spec file, and generate types 
 
 ## Design
 
-![mock-design](mockDesign.png)
+![mock-design](design/startup_dashboard.png)
