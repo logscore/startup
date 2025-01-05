@@ -29,7 +29,8 @@ I aim to build a program that can take an OpenAPI spec file, and generate types 
     - Process parsed data and generates docs/types based on the spec
     - Call GitHub and GitLab API for quick version control for SDKs
 - MongoDB: Stores user auth data, genrated types, and generated docs
-- WebSocket: No idea what I would use a websocket for in this application. Maybe a counter of SDKs generated, or a live chat for customer support.
+- Websocket: No idea what I would use a websocket for in this application. Maybe a counter of SDKs generated, or a live chat for customer support.
+
 
 ## Design
 
