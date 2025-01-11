@@ -1,0 +1,14 @@
+.index_nav {
+	display: flex;
+	justify-content: space-between;
+}
+
+.content_container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.side_nav {
+	display: flex;
+	flex-direction: column;
+}
