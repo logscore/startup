@@ -18,44 +18,49 @@
 				<a>Docs</a>
 			</div>
 		</nav>
-		<hr />
-		<div class="content_container">
-			<div class="side_nav">
-				<button>Configuration</button>
-				<button>Models</button>
-				<button>Docs</button>
-				<button>Deploy</button>
-			</div>
-			<div>
-				<h2>Configuration</h2>
-				<div>
-					<label>Project Name</label>
-					<input placeholder="your-cool-project" />
+		<main>
+			<hr />
+			<div class="content_container">
+				<div class="side_nav">
+					<button>Configuration</button>
+					<button>Models</button>
+					<button>Docs</button>
+					<button>Deploy</button>
 				</div>
+
 				<div>
-					<label>Version</label>
-					<input placeholder="1.0.0" />
-				</div>
-				<div>
-					<button>Import Spec</button>
-				</div>
-				<div>
-					<label>What to generate</label>
+					<h2>Configuration</h2>
 					<div>
-						<button>Types</button>
-						<button>Docs</button>
+						<label>Project Name</label>
+						<input placeholder="your-cool-project" />
 					</div>
+					<div>
+						<label>Version</label>
+						<input placeholder="1.0.0" />
+					</div>
+					<div>
+						<button>Import OpenAPI file</button>
+					</div>
+					<div>
+						<label>What to generate</label>
+						<div>
+							<button>Types</button>
+							<button>Docs</button>
+						</div>
+					</div>
+					<button>Go!</button>
 				</div>
-				<button>Go!</button>
+				<textarea>
+Text area to edit the OpenAPI spec. I'll probably try to implement the Monaco editor here</textarea
+				>
+				<textarea>
+Type Here (I'll also use this as the websocket implementation. Changes to the specs will be live updated here without refreshing)</textarea
+				>
 			</div>
-			<textarea>
-			Type Here (I'll also use this as the websocket implementation. 
-			Changes to the specs will be live updated here without refreshing)</textarea
-			>
-		</div>
+		</main>
 		<hr />
-		<div>
+		<footer>
 			<div>Rows with the parsed routes and relevant data here</div>
-		</div>
+		</footer>
 	</body>
 </html>
