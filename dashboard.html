@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="./styles/dashboard_style.css"
+		/>
+		<title>Demodel</title>
+	</head>
+	<body>
+		<nav class="index_nav">
+			<h2>Demodel</h2>
+			<div class="auth_nav_links">
+				<a>Github</a>
+				<a>Docs</a>
+			</div>
+		</nav>
+		<main>
+			<hr />
+			<div class="content_container">
+				<div class="side_nav">
+					<button>Configuration</button>
+					<button>Models</button>
+					<button>Docs</button>
+					<button>Deploy</button>
+				</div>
+
+				<div>
+					<h2>Configuration</h2>
+					<div>
+						<label>Project Name</label>
+						<input placeholder="your-cool-project" />
+					</div>
+					<div>
+						<label>Version</label>
+						<input placeholder="1.0.0" />
+					</div>
+					<div>
+						<button>Import OpenAPI file</button>
+					</div>
+					<div>
+						<label>What to generate</label>
+						<div>
+							<button>Types</button>
+							<button>Docs</button>
+						</div>
+					</div>
+					<button>Go!</button>
+				</div>
+				<textarea>
+Text area to edit the OpenAPI spec. I'll probably try to implement the Monaco editor here</textarea
+				>
+				<textarea>
+Type Here (I'll also use this as the websocket implementation. Changes to the specs will be live updated here without refreshing)</textarea
+				>
+			</div>
+		</main>
+		<hr />
+		<footer>
+			<div>Rows with the parsed routes and models stored in the db</div>
+		</footer>
+	</body>
+</html>

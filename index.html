@@ -3,64 +3,44 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link
-			rel="stylesheet"
-			type="text/css"
-			href="./styles/index_style.css"
-		/>
-		<title>Demodel</title>
+		<link rel="stylesheet" type="text/css" href="./styles/auth_style.css" />
+		<title>Sign Up</title>
 	</head>
 	<body>
-		<nav class="index_nav">
+		<nav class="auth_nav">
 			<h2>Demodel</h2>
 			<div class="auth_nav_links">
-				<a>Github</a>
+				<a href="https://github.com/logscore/startup">Github</a>
 				<a>Docs</a>
 			</div>
 		</nav>
-		<main>
-			<hr />
-			<div class="content_container">
-				<div class="side_nav">
-					<button>Configuration</button>
-					<button>Models</button>
-					<button>Docs</button>
-					<button>Deploy</button>
+		<div class="auth_container">
+			<div class="auth_box">
+				<div class="welcome_text">
+					<span>😍</span>
+					<h1>Hey there!</h1>
+					<p>Ready to ship better code?</p>
 				</div>
-
-				<div>
-					<h2>Configuration</h2>
-					<div>
-						<label>Project Name</label>
-						<input placeholder="your-cool-project" />
-					</div>
-					<div>
-						<label>Version</label>
-						<input placeholder="1.0.0" />
-					</div>
-					<div>
-						<button>Import OpenAPI file</button>
-					</div>
-					<div>
-						<label>What to generate</label>
-						<div>
-							<button>Types</button>
-							<button>Docs</button>
-						</div>
-					</div>
-					<button>Go!</button>
+				<div class="email">
+					<label>Email</label>
+					<input
+						type="email"
+						id="email"
+						class="email_input"
+						placeholder="Your Email"
+					/>
 				</div>
-				<textarea>
-Text area to edit the OpenAPI spec. I'll probably try to implement the Monaco editor here</textarea
-				>
-				<textarea>
-Type Here (I'll also use this as the websocket implementation. Changes to the specs will be live updated here without refreshing)</textarea
-				>
+				<div class="password">
+					<label>Password</label>
+					<input
+						type="password"
+						id="password"
+						class="password_input"
+						placeholder="Secure Password"
+					/>
+				</div>
+				<a href="./dashboard.html">Sign In</a>
 			</div>
-		</main>
-		<hr />
-		<footer>
-			<div>Rows with the parsed routes and relevant data here</div>
-		</footer>
+		</div>
 	</body>
 </html>
