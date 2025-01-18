@@ -43,3 +43,7 @@ I aim to build a program that can take an OpenAPI spec file, and generate types 
 
 - I added the html to the site, with a bit of flex box styling because i hate how it looks so much.
 - Added Github links, and links to the main dashboard page.
+
+### CSS:
+
+- 

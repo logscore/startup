@@ -14,42 +14,68 @@
 		<nav class="index_nav">
 			<h2>Demodel</h2>
 			<div class="auth_nav_links">
-				<a
-					style="font-size: 4rem"
-					href="https://github.com/logscore/startup"
-					>Github Link Click Me</a
+				<button
+					onclick="location.href='https://github.com/logscore/startup';"
 				>
-				<a>Docs</a>
+					<img src="./assets/github.svg" alt="GitHub" />
+				</button>
+
+				<button class="docs_button">
+					<img src="./assets/docs.svg" alt="Documentation" />
+				</button>
 			</div>
 		</nav>
 		<main>
-			<hr />
 			<div class="content_container">
 				<div class="side_nav">
-					<button>Configuration</button>
-					<button>Models</button>
-					<button>Docs</button>
-					<button>CI/CD (Github API)</button>
+					<button>
+						<img src="./assets/gear-settings.svg" />
+					</button>
+					<button>
+						<img src="./assets/sdk-code-icon.svg" />
+					</button>
+					<button>
+						<img src="./assets/git-compare.svg" />
+					</button>
 				</div>
 
-				<div>
+				<div class="config_box">
 					<h2>Configuration</h2>
-					<div>
+					<div class="input_element">
 						<label>Project Name</label>
 						<input placeholder="your-cool-project" />
 					</div>
-					<div>
+					<div class="input_element">
 						<label>Version</label>
 						<input placeholder="1.0.0" />
 					</div>
-					<div>
-						<button>Import OpenAPI file</button>
+					<div class="input_element">
+						<button>Import</button>
 					</div>
-					<div>
-						<label>What to generate</label>
-						<div>
-							<button>Types</button>
-							<button>Docs</button>
+					<div class="langs">
+						<label class="langs_label">Languages</label>
+						<div class="lang_boxes">
+							<input
+								type="checkbox"
+								class="checkbox"
+								name="language1"
+								value="python"
+							/>
+							<label for="lang1"> Python</label><br />
+							<input
+								type="checkbox"
+								class="checkbox"
+								name="language2"
+								value="typescript"
+							/>
+							<label for="lang2"> Typescript</label><br />
+							<input
+								type="checkbox"
+								class="checkbox"
+								name="language3"
+								value="go"
+							/>
+							<label for="lang3"> Go</label><br />
 						</div>
 					</div>
 					<button>Go!</button>
@@ -61,10 +87,8 @@ Text area to edit the OpenAPI spec. I'll probably try to implement the Monaco ed
 Type Here (I'll also use this as the websocket implementation. Changes to the specs will be live updated here without refreshing)</textarea
 				>
 			</div>
-		</main>
-		<hr />
-		<footer>
 			<div>Rows with the parsed routes and models stored in the db</div>
-		</footer>
+		</main>
+		<footer>Copyleft: Demodel Corp.</footer>
 	</body>
 </html>

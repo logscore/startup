@@ -1,14 +1,131 @@
+body {
+	font-family: "Courier New", Courier, monospace;
+}
+
 .index_nav {
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
+}
+
+.auth_nav_links {
+	display: flex;
+}
+
+.auth_nav_links button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 3rem;
+	width: 3rem;
+	justify-items: center;
+	background-color: transparent;
+	transition: 0.25s;
+	border: transparent;
+	border-radius: 2rem;
+}
+
+.auth_nav_links button:hover {
+	background-color: #dbf1ff;
+}
+
+.auth_nav_links a:hover {
+	background-color: #dbf1ff;
 }
 
 .content_container {
 	display: flex;
-	justify-content: space-between;
+	/* justify-content: space-between; */
+	background-color: #f0f0f0f0;
 }
 
 .side_nav {
 	display: flex;
 	flex-direction: column;
+	/* justify-content: space-between; */
+	border-radius: 2rem;
+	background-color: #ffffff;
+	padding: 0.5rem;
+	margin: 0.5rem;
+}
+
+.side_nav button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 3rem;
+	width: 3rem;
+	justify-items: center;
+	background-color: transparent;
+	transition: 0.25s;
+	border: transparent;
+	border-radius: 2rem;
+	margin-bottom: 0.25rem;
+}
+
+.side_nav button:first-child {
+	background-color: #dbf1ff;
+}
+
+.side_nav button:hover {
+	background-color: #dbf1ff;
+}
+
+.config_box {
+	display: flex;
+	flex-direction: column;
+	/* justify-content: space-between; */
+	border-radius: 0.5rem;
+	background-color: #ffffff;
+	padding: 0.5rem;
+	margin: 0.5rem;
+}
+
+.config_box h2 {
+	margin: 0px;
+	margin-bottom: 1rem;
+	margin-top: 0.5rem;
+}
+
+.config_box button {
+	height: 2rem;
+	width: 6rem;
+	color: #ffffff;
+	background-color: #65558f;
+	border: 1px solid #65558f;
+	border-radius: 2rem;
+}
+
+.input_element {
+	display: flex;
+	flex-direction: column;
+	margin: 0.5rem;
+}
+
+.input_element button {
+	width: 5rem;
+	color: #ffffff;
+	background-color: #65558f;
+	border: 1px solid #65558f;
+	border-radius: 2rem;
+}
+
+.langs {
+	margin: 0.75rem;
+}
+
+.langs_label {
+	display: inline-flex;
+	margin-bottom: 0.5rem;
+}
+
+.lang_boxes {
+	background-color: #dbf1ff;
+	width: 9rem;
+	padding: 0.5rem;
+	border-radius: 0.5rem;
+}
+
+.checkbox {
+	background-color: transparent;
 }
