@@ -1,18 +1,38 @@
+/* Global styling */
+html,
 body {
 	font-family: "Courier New", Courier, monospace;
+	margin: 0;
 }
 
-.index_nav {
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+button {
+	cursor: pointer;
+	transition: 0.25s;
+}
+
+/* Navigation Styling */
+nav {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
 
-.auth_nav_links {
-	display: flex;
+.title {
+	margin: 1rem;
 }
 
-.auth_nav_links button {
+.nav_links {
+	display: flex;
+	margin: 0.5rem;
+}
+
+.nav_links button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -20,29 +40,28 @@ body {
 	width: 3rem;
 	justify-items: center;
 	background-color: transparent;
-	transition: 0.25s;
 	border: transparent;
 	border-radius: 2rem;
 }
 
-.auth_nav_links button:hover {
+.nav_links button:hover {
 	background-color: #dbf1ff;
 }
 
-.auth_nav_links a:hover {
+.nav_links a:hover {
 	background-color: #dbf1ff;
 }
 
+/* Main styling */
 .content_container {
 	display: flex;
-	/* justify-content: space-between; */
 	background-color: #f0f0f0f0;
+	flex-grow: 1;
 }
 
 .side_nav {
 	display: flex;
 	flex-direction: column;
-	/* justify-content: space-between; */
 	border-radius: 2rem;
 	background-color: #ffffff;
 	padding: 0.5rem;
@@ -71,7 +90,7 @@ body {
 	background-color: #dbf1ff;
 }
 
-.config_box {
+.content_box {
 	display: flex;
 	flex-direction: column;
 	/* justify-content: space-between; */
@@ -81,13 +100,13 @@ body {
 	margin: 0.5rem;
 }
 
-.config_box h2 {
+.content_box h2 {
 	margin: 0px;
 	margin-bottom: 1rem;
 	margin-top: 0.5rem;
 }
 
-.config_box button {
+.content_box button {
 	height: 2rem;
 	width: 6rem;
 	color: #ffffff;
@@ -128,4 +147,15 @@ body {
 
 .checkbox {
 	background-color: transparent;
+}
+
+/* Footer styling */
+footer {
+	background-color: #333;
+	color: white;
+	text-align: center;
+	padding: 10px;
+	position: relative;
+	bottom: 0;
+	width: 100%;
 }

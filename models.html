@@ -3,8 +3,12 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" type="text/css" href="./styles/auth_style.css" />
-		<title>Sign Up</title>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="./styles/dashboard_style.css"
+		/>
+		<title>Demodel</title>
 	</head>
 	<body>
 		<nav class="index_nav">
@@ -29,42 +33,21 @@
 				</button>
 			</div>
 		</nav>
-		<div class="auth_container">
-			<div class="auth_box">
-				<div class="welcome_text">
-					<span>😍</span>
-					<h1>Hey there!</h1>
-					<p>Ready to not write all your types?</p>
-				</div>
-				<div class="email">
-					<label>Email</label>
-					<input
-						type="email"
-						id="email"
-						class="email_input"
-						placeholder="Your Email"
-					/>
-				</div>
-				<div class="password">
-					<label>Password</label>
-					<input
-						type="password"
-						id="password"
-						class="password_input"
-						placeholder="Secure Password"
-					/>
-				</div>
-				<button onclick="location.href='/dashboard.html';">
-					Sign In
+		<main class="content_container">
+			<div class="side_nav">
+				<button onclick="location.href='/dashboard.html'">
+					<img src="./assets/gear-settings.svg" />
+				</button>
+				<button onclick="location.href='/models.html'">
+					<img src="./assets/sdk-code-icon.svg" />
+				</button>
+				<button onclick="location.href='/version_control.html'">
+					<img src="./assets/git-compare.svg" />
 				</button>
 			</div>
-		</div>
+
+			<div class="content_box">Display models here</div>
+		</main>
 	</body>
 	<footer>Copyleft: Demodel Corp.</footer>
-
-	<script>
-		function signIn() {
-			// Implement sign in logic
-		}
-	</script>
 </html>

@@ -40,7 +40,6 @@ nav {
 	width: 3rem;
 	justify-items: center;
 	background-color: transparent;
-	transition: 0.25s;
 	border: transparent;
 	border-radius: 2rem;
 }
@@ -53,37 +52,52 @@ nav {
 	background-color: #dbf1ff;
 }
 
-.auth_container {
+/* Main styling */
+.content_container {
 	display: flex;
-	justify-content: center;
+	background-color: #f0f0f0f0;
+	flex-grow: 1;
 }
 
-.auth_box {
+.side_nav {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	border-radius: 2rem;
+	background-color: #ffffff;
+	padding: 0.5rem;
+	margin: 0.5rem;
+}
+
+.side_nav button {
+	display: flex;
 	align-items: center;
-	width: 25rem;
-	height: 25rem;
+	justify-content: center;
+	height: 3rem;
+	width: 3rem;
+	justify-items: center;
+	background-color: transparent;
+	transition: 0.25s;
+	border: transparent;
+	border-radius: 2rem;
+	margin-bottom: 0.25rem;
 }
 
-.welcome_text {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+.side_nav button.active {
+	background-color: #dbf1ff;
 }
 
-.email {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+.side_nav button:hover {
+	background-color: #dbf1ff;
 }
 
-.password {
+.content_box {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	/* justify-content: space-between; */
+	border-radius: 0.5rem;
+	background-color: #ffffff;
+	padding: 0.5rem;
+	margin: 0.5rem;
 }
 
 /* Footer styling */
@@ -94,4 +108,5 @@ footer {
 	padding: 10px;
 	position: relative;
 	bottom: 0;
+	width: 100%;
 }
