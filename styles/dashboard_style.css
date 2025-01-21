@@ -149,6 +149,15 @@ nav {
 	background-color: transparent;
 }
 
+.monaco_editor {
+	width: 100%;
+	margin: 0.5rem;
+}
+
+.routes {
+	height: 15rem;
+}
+
 /* Footer styling */
 footer {
 	background-color: #333;
