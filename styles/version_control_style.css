@@ -82,7 +82,7 @@ nav {
 	margin-bottom: 0.25rem;
 }
 
-.side_nav button.active {
+.side_nav button:nth-child(3) {
 	background-color: #dbf1ff;
 }
 

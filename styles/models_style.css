@@ -82,7 +82,7 @@ nav {
 	margin-bottom: 0.25rem;
 }
 
-.side_nav button:nth-child(1) {
+.side_nav button:nth-child(2) {
 	background-color: #dbf1ff;
 }
 
@@ -98,55 +98,6 @@ nav {
 	background-color: #ffffff;
 	padding: 0.5rem;
 	margin: 0.5rem;
-}
-
-.content_box h2 {
-	margin: 0px;
-	margin-bottom: 1rem;
-	margin-top: 0.5rem;
-}
-
-.content_box button {
-	height: 2rem;
-	width: 6rem;
-	color: #ffffff;
-	background-color: #65558f;
-	border: 1px solid #65558f;
-	border-radius: 2rem;
-}
-
-.input_element {
-	display: flex;
-	flex-direction: column;
-	margin: 0.5rem;
-}
-
-.input_element button {
-	width: 5rem;
-	color: #ffffff;
-	background-color: #65558f;
-	border: 1px solid #65558f;
-	border-radius: 2rem;
-}
-
-.langs {
-	margin: 0.75rem;
-}
-
-.langs_label {
-	display: inline-flex;
-	margin-bottom: 0.5rem;
-}
-
-.lang_boxes {
-	background-color: #dbf1ff;
-	width: 9rem;
-	padding: 0.5rem;
-	border-radius: 0.5rem;
-}
-
-.checkbox {
-	background-color: transparent;
 }
 
 /* Footer styling */
