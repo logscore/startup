@@ -156,6 +156,21 @@ nav {
 
 .routes {
 	height: 15rem;
+	width: 100%;
+}
+
+/* Parsed Routes Styling */
+table {
+	width: 100%;
+	margin-left: 1rem;
+}
+
+table tr button {
+	color: #ffffff;
+	background-color: #65558f;
+	border: 1px solid #65558f;
+	padding: 0.4rem;
+	border-radius: 2rem;
 }
 
 /* Footer styling */
