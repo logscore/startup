@@ -56,6 +56,7 @@ nav {
 .auth_container {
 	display: flex;
 	justify-content: center;
+	margin: auto;
 }
 
 .auth_box {
@@ -84,6 +85,10 @@ nav {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+}
+
+.auth_title {
+	margin-bottom: 0;
 }
 
 /* Footer styling */
