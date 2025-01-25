@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" type="text/css" href="./styles/auth_style.css" />
 		<title>Sign Up</title>
+		<link rel="shortcut icon" href="assets/favicon.svg" type="image/svg" />
 	</head>
 	<body>
 		<nav class="index_nav">
@@ -32,7 +33,7 @@
 		<div class="auth_container">
 			<div class="auth_box">
 				<div class="welcome_text">
-					<span>😍</span>
+					<span class="emoji">😍</span>
 					<h1 class="auth_title">Hey there!</h1>
 					<p>Ready to not write all your types?</p>
 				</div>
@@ -54,7 +55,10 @@
 						placeholder="Secure Password"
 					/>
 				</div>
-				<button onclick="location.href='/dashboard.html';">
+				<button
+					class="signin_button"
+					onclick="location.href='/dashboard.html';"
+				>
 					Sign In
 				</button>
 			</div>

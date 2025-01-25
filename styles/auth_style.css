@@ -68,6 +68,10 @@ nav {
 	height: 25rem;
 }
 
+.emoji {
+	font-size: 3rem;
+}
+
 .welcome_text {
 	display: flex;
 	flex-direction: column;
@@ -79,16 +83,36 @@ nav {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	margin-bottom: 0.5rem;
+}
+
+.email label {
+	font-weight: 600;
 }
 
 .password {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	margin-bottom: 0.5rem;
+}
+
+.password label {
+	font-weight: 600;
 }
 
 .auth_title {
 	margin-bottom: 0;
+}
+
+.signin_button {
+	padding: 0.5rem;
+	width: 7rem;
+	color: #ffffff;
+	background-color: #65558f;
+	border: 1px solid #65558f;
+	border-radius: 2rem;
+	font-weight: 800;
 }
 
 /* Footer styling */
