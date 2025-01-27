@@ -49,5 +49,6 @@ I aim to build a program that can take an OpenAPI spec file, and generate types 
 - I made a bunch of styling
 - I defined some global variables and dynamic scaling for responsiveness. 
 - Responsiveness is weird here because this seriously is NOT meant to be used on a mobile device since it is a developer tool.
+- Styled the dashboard, auth page, account page, models page, and version control page.
 
 ### 
