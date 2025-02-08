@@ -1,125 +1,119 @@
 /* Global styling */
-html,
-body {
-	font-family: "Courier New", Courier, monospace;
-	margin: 0;
-}
-
-body {
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
-}
 
 button {
-	cursor: pointer;
-	transition: 0.25s;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+h1 {
+    color: #ffd700;
 }
 
 .auth_container {
-	display: flex;
-	justify-content: center;
-	margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .auth_box {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	width: 25rem;
-	height: 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 25rem;
+    height: 25rem;
 }
 
 .emoji {
-	font-size: 3rem;
+    font-size: 3rem;
 }
 
 .welcome_text {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .email {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 0.5rem;
 }
 
 .email label {
-	font-weight: 600;
+    font-weight: 600;
 }
 
 .password {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 0.5rem;
 }
 
 .password label {
-	font-weight: 600;
+    font-weight: 600;
 }
 
 .auth_title {
-	margin: 0;
+    margin: 0;
 }
 
 .signin_button {
-	padding: 0.5rem;
-	width: 7rem;
-	color: #ffffff;
-	background-color: #65558f;
-	border: 1px solid #65558f;
-	border-radius: 2rem;
-	font-weight: 800;
+    padding: 0.5rem;
+    width: 7rem;
+    height: 2.5rem;
+    color: #1a1a1a;
+    background-color: #ffd700;
+    border: 1px solid #ffd700;
+    border-radius: 0.25rem;
+    font-weight: 800;
 }
 
 /* Footer styling */
 footer {
-	background-color: #333;
-	color: white;
-	text-align: center;
-	padding: 10px;
-	position: relative;
-	bottom: 0;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
 }
 
 /* Mobile Styles */
 @media screen and (max-width: 768px) {
-	.content_container {
-		flex-direction: column;
-	}
+    .content_container {
+        flex-direction: column;
+    }
 
-	.side_nav {
-		flex-direction: row;
-		justify-content: center;
-		margin: 0.25rem;
-		margin-top: 0.5rem;
-		padding: 0.25rem;
-		overflow-x: auto;
-	}
+    .side_nav {
+        flex-direction: row;
+        justify-content: center;
+        margin: 0.25rem;
+        margin-top: 0.5rem;
+        padding: 0.25rem;
+        overflow-x: auto;
+    }
 
-	.side_nav button {
-		margin: 0 0.25rem;
-	}
+    .side_nav button {
+        margin: 0 0.25rem;
+    }
 
-	.content_box {
-		margin: 0.25rem;
-		padding: 0.5rem;
-	}
+    .content_box {
+        margin: 0.25rem;
+        padding: 0.5rem;
+    }
 
-	.monaco_editor {
-		width: auto;
-		height: 100%;
-		margin: 0.5rem;
-	}
+    .monaco_editor {
+        width: auto;
+        height: 100%;
+        margin: 0.5rem;
+    }
 
-	table {
-		margin-left: 0;
-		font-size: 0.9rem;
-	}
+    table {
+        margin-left: 0;
+        font-size: 0.9rem;
+    }
 }

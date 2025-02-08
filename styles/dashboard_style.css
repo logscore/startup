@@ -65,20 +65,28 @@ nav {
 
 .method-selector {
     padding: 0.5rem;
-    border: transparent;
+    border: 1px solid #333;
     border-radius: 0.25rem;
     background-color: #1a1a1a;
     color: #fff;
+}
+
+.method-selector:focus {
+    border: 1px solid #ffd700;
 }
 
 .input-box {
     height: 2rem;
     background-color: #1a1a1a;
     color: #fff;
-    border: none;
+    border: 1px solid #333;
     border-radius: 4px;
     outline: none;
     margin: 0.25rem;
+}
+
+.input-box:focus {
+    border: 1px solid #ffd700;
 }
 
 .content-box {
@@ -120,18 +128,26 @@ nav {
     height: 150px;
     background-color: #1a1a1a;
     color: #fff;
-    border: 2px solid #888;
+    border: 1px solid #333;
     border-radius: 0.25rem;
     resize: none;
 }
 
+.request-body textarea:focus {
+    border: 1px solid #ffd700;
+}
+
 .authentication select {
     padding: 0.5rem;
-    border: transparent;
+    border: 1px solid #333;
     border-radius: 0.25rem;
     background-color: #1a1a1a;
     color: #fff;
     margin-bottom: 0.5rem;
+}
+
+.authentication select:focus {
+    border: 1px solid #ffd700;
 }
 
 .authentication {
@@ -139,13 +155,18 @@ nav {
 }
 
 .auth-inputs input {
+    display: none;
     height: 2rem;
     background-color: #1a1a1a;
     color: #fff;
-    border: none;
+    border: 1px solid #333;
     border-radius: 4px;
     outline: none;
     margin: 0.25rem;
+}
+
+.auth-inputs input:focus {
+    border: 1px solid #ffd700;
 }
 
 .save-button {
@@ -232,7 +253,6 @@ nav {
 }
 
 button {
-    width: fit-content;
     color: #1a1a1a;
     background-color: #ffd700;
     border: transparent;
