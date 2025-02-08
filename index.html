@@ -1,74 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" type="text/css" href="./styles/auth_style.css" />
-		<title>Sign Up</title>
-		<link rel="shortcut icon" href="assets/favicon.svg" type="image/svg" />
-	</head>
-	<body>
-		<nav class="index_nav">
-			<h2
-				class="title"
-				onclick="location.href='/dashboard.html';"
-				style="cursor: pointer"
-			>
-				Demodel
-			</h2>
-			<div class="nav_links">
-				<button
-					onclick="location.href='https://github.com/logscore/startup';"
-				>
-					<img src="./assets/github.svg" alt="GitHub" />
-				</button>
-				<button class="docs_button">
-					<img src="./assets/docs.svg" alt="Documentation" />
-				</button>
-				<button onclick="location.href='/account.html';">
-					<img src="./assets/user_account.svg" alt="User account" />
-				</button>
-			</div>
-		</nav>
-		<div class="auth_container">
-			<div class="auth_box">
-				<div class="welcome_text">
-					<span class="emoji">😍</span>
-					<h1 class="auth_title">Hey there!</h1>
-					<p>Ready to not write all your types?</p>
-				</div>
-				<div class="email">
-					<label>Email</label>
-					<input
-						type="email"
-						id="email"
-						class="email_input"
-						placeholder="Your Email"
-					/>
-				</div>
-				<div class="password">
-					<label>Password</label>
-					<input
-						type="password"
-						id="password"
-						class="password_input"
-						placeholder="Secure Password"
-					/>
-				</div>
-				<button
-					class="signin_button"
-					onclick="location.href='/dashboard.html';"
-				>
-					Sign In
-				</button>
-			</div>
-		</div>
-	</body>
-	<footer>Copyleft: Demodel Corp.</footer>
-
-	<script>
-		function signIn() {
-			// Implement sign in logic
-		}
-	</script>
+  <head>
+    <title>Foxxi</title>
+  </head>
+  <body>
+    <noscript>Oopsy whoopsy, looks like you need to enable Jabacrip to see this app XD</noscript>
+    <div id="root"></div>
+    <script type="module" src="src/index.jsx"></script>
+  </body>
 </html>

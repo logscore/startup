@@ -16,43 +16,6 @@ button {
 	transition: 0.25s;
 }
 
-/* Navigation Styling */
-nav {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-.title {
-	margin: 1rem;
-}
-
-.nav_links {
-	display: flex;
-	margin: 0.5rem;
-}
-
-.nav_links button {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 3rem;
-	width: 3rem;
-	justify-items: center;
-	background-color: transparent;
-	transition: 0.25s;
-	border: transparent;
-	border-radius: 2rem;
-}
-
-.nav_links button:hover {
-	background-color: #dbf1ff;
-}
-
-.nav_links a:hover {
-	background-color: #dbf1ff;
-}
-
 .auth_container {
 	display: flex;
 	justify-content: center;
