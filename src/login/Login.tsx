@@ -29,7 +29,7 @@ function LogIn() {
                         id='email'
                         className='signin-box'
                         placeholder='Your Email'
-                        onChange={e => setEmail(e.target.value)} // Had to look this one up because text wouldnt show up when typed in on the last implementation
+                        onChange={e => setEmail(e.target.value)} // Had to look this one up because text wouldn't show up when typed in on the last implementation
                     />
                 </div>
                 <div className='password'>
@@ -40,7 +40,7 @@ function LogIn() {
                         id='password'
                         className='signin-box'
                         placeholder='Secure Password'
-                        onChange={e => setPassword(e.target.value)} // Had to look this one up because text wouldnt show up when typed in on the last implementation
+                        onChange={e => setPassword(e.target.value)} // Had to look this one up because text wouldn't show up when typed in on the last implementation
                     />
                 </div>
                 <button type='submit' className='signin_button'>
