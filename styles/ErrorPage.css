@@ -1,0 +1,150 @@
+.neofetch-container {
+    font-family: monospace;
+    background-color: #000;
+    color: #4ade80;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.neofetch-content {
+    max-width: 42rem;
+}
+
+.neofetch-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.ascii-art {
+    color: #60a5fa;
+    white-space: pre;
+}
+
+@media (max-width: 640px) {
+    .ascii-art {
+        display: none;
+    }
+}
+
+.info-section {
+    flex: 1;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.5rem 1rem;
+}
+
+.label {
+    color: #9ca3af;
+}
+
+.message {
+    margin-top: 1.5rem;
+    color: #fbbf24;
+}
+
+.return-line {
+    display: flex;
+    align-items: center;
+}
+
+.error-link {
+    font-family: monospace;
+    text-decoration: none;
+    color: #4ade80;
+    display: inline-flex;
+    margin-top: 8px;
+    padding: 4px;
+    border: none;
+    background-color: transparent;
+}
+
+.error-link:hover {
+    background-color: #4ade8045;
+}
+
+.cursor {
+    display: inline-block;
+    height: 1.1em;
+    margin-top: 0px;
+    width: 0.5em;
+    vertical-align: middle;
+    -webkit-animation: 1.2s blink step-end infinite;
+    -moz-animation: 1.2s blink step-end infinite;
+    -ms-animation: 1.2s blink step-end infinite;
+    -o-animation: 1.2s blink step-end infinite;
+    animation: 1.2s blink step-end infinite;
+    background: #fff;
+}
+
+.return {
+    color: #9ca3af;
+    font-weight: 100;
+    padding: 4px;
+    margin-left: 2rem;
+    margin-top: 8px;
+    margin-bottom: 0px;
+}
+
+@keyframes blink {
+    from,
+    to {
+        background: 0 0;
+    }
+    50% {
+        background: #fff;
+    }
+}
+
+@-moz-keyframes blink {
+    from,
+    to {
+        background: 0 0;
+    }
+    50% {
+        background: #fff;
+    }
+}
+
+@-webkit-keyframes blink {
+    from,
+    to {
+        background: 0 0;
+    }
+    50% {
+        background: #fff;
+    }
+}
+
+@-ms-keyframes blink {
+    from,
+    to {
+        background: 0 0;
+    }
+    50% {
+        background: #fff;
+    }
+}
+
+@-o-keyframes blink {
+    from,
+    to {
+        background: 0 0;
+    }
+    50% {
+        background: #fff;
+    }
+}

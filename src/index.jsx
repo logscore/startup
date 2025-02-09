@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Im
 import Home from './home/Home';
 import AccountPage from './account/AccountPage';
 import '../styles/dashboard_style.css';
-import '../styles/auth_style.css';
 import LogIn from './login/Login';
+import ErrorPage from './error/ErrorPage';
 
 function App() {
     return (
@@ -15,6 +15,7 @@ function App() {
                 <Route path='/' element={<Home />} />
                 <Route path='/account' element={<AccountPage />} />
                 <Route path='/login' element={<LogIn />} />
+                <Route path='*' element={<ErrorPage />} />
             </Routes>
         </Router>
     );

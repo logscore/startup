@@ -1,23 +1,16 @@
-/* Global styling */
 body {
     font-family: 'JetBrains Mono', 'Courier New', monospace;
     margin: 0;
     background-color: #1a1a1a;
     color: #e0e0e0;
-}
-
-body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
 }
 
 button {
     cursor: pointer;
-    /* transition: all 0.35s ease; */
 }
 
-/* Navigation Styling */
 nav {
     display: flex;
     justify-content: space-between;
@@ -53,7 +46,6 @@ nav {
     color: #ffd700;
 }
 
-/* Main styling */
 .content-container {
     display: flex;
     background-color: #1a1a1a;
@@ -83,6 +75,8 @@ nav {
     border-radius: 4px;
     outline: none;
     margin: 0.25rem;
+    width: 45%;
+    padding-left: 8px;
 }
 
 .input-box:focus {
@@ -131,6 +125,8 @@ nav {
     border: 1px solid #333;
     border-radius: 0.25rem;
     resize: none;
+    padding-left: 8px;
+    padding-top: 4px;
 }
 
 .request-body textarea:focus {
@@ -187,7 +183,6 @@ nav {
     color: #ffd700;
 }
 
-/* Parsed Routes Styling */
 .routes {
     width: 100%;
     font-family: Arial, sans-serif;
@@ -252,7 +247,7 @@ nav {
     width: 2rem;
 }
 
-button {
+.custom-button {
     color: #1a1a1a;
     background-color: #ffd700;
     border: transparent;
@@ -263,7 +258,7 @@ button {
     height: 1.75rem;
 }
 
-button:hover {
+.custom-button:hover {
     background-color: #252525;
     border: 2px solid #ffd700;
     color: #ffd700;
@@ -318,7 +313,6 @@ button:hover {
     font-size: large;
 }
 
-/* Footer styling */
 footer {
     background-color: #252525;
     color: #888;
@@ -329,7 +323,6 @@ footer {
     border-top: 1px solid #333;
 }
 
-/* Mobile Styles */
 @media screen and (max-width: 768px) {
     .content-container {
         flex-direction: column;

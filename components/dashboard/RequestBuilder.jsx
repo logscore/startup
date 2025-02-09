@@ -5,7 +5,6 @@ function TestBuilder() {
         <div className='content-box'>
             <h2>Test Builder</h2>
 
-            {/* API URL */}
             <div>
                 <label>API URL: </label>
                 <input
@@ -16,7 +15,6 @@ function TestBuilder() {
                 />
             </div>
 
-            {/* method */}
             <div className='method'>
                 <h3>Method</h3>
                 <select className='method-selector'>
@@ -28,7 +26,6 @@ function TestBuilder() {
                 </select>
             </div>
 
-            {/* Hhader */}
             <div>
                 <h3>Headers</h3>
                 <div>
@@ -42,7 +39,7 @@ function TestBuilder() {
                         type='text'
                         placeholder='Header Value'
                     />
-                    <button className='content-box-button'>+</button>
+                    {/* <button className='content-box-button'>+</button> */}
                 </div>
                 <div>
                     <input
@@ -55,11 +52,10 @@ function TestBuilder() {
                         type='text'
                         placeholder='Header Value'
                     />
-                    <button className='content-box-button'>+</button>
+                    {/* <button className='content-box-button'>+</button> */}
                 </div>
             </div>
 
-            {/* query params */}
             <div>
                 <h3>Query Parameters</h3>
                 <div>
@@ -73,7 +69,7 @@ function TestBuilder() {
                         type='text'
                         placeholder='Query Value'
                     />
-                    <button className='content-box-button'>+</button>
+                    {/* <button className='content-box-button'>+</button> */}
                 </div>
                 <div>
                     <input
@@ -86,17 +82,15 @@ function TestBuilder() {
                         type='text'
                         placeholder='Query Value'
                     />
-                    <button className='content-box-button'>+</button>
+                    {/* <button className='content-box-button'>+</button> */}
                 </div>
             </div>
 
-            {/* request body */}
             <div className='request-body'>
                 <h3>Request Body</h3>
                 <textarea placeholder='{ "key": "value" }' />
             </div>
 
-            {/* auth */}
             <div className='authentication'>
                 <h3>Authentication</h3>
                 <select>

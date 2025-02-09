@@ -76,8 +76,8 @@ function TestsExplorer() {
                         <button
                             className={
                                 tab === 1
-                                    ? 'explorer-button-active'
-                                    : 'explorer-button-inactive'
+                                    ? 'custom-button explorer-button-active'
+                                    : 'custom-button explorer-button-inactive'
                             }
                             onClick={() => setTab(1)}
                         >
@@ -86,8 +86,8 @@ function TestsExplorer() {
                         <button
                             className={
                                 tab === 2
-                                    ? 'explorer-button-active'
-                                    : 'explorer-button-inactive'
+                                    ? 'custom-button explorer-button-active'
+                                    : 'custom-button explorer-button-inactive'
                             }
                             onClick={() => setTab(2)}
                         >

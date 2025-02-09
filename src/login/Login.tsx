@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../styles/auth_style.css';
 import { useNavigate } from 'react-router-dom';
 
 function LogIn() {
-    const email = '';
-    const password = '';
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
     const handleSubmit = e => {
@@ -17,7 +17,7 @@ function LogIn() {
         <div className='auth_container'>
             <form onSubmit={handleSubmit} className='auth_box'>
                 <div className='welcome_text'>
-                    <span className='emoji'>😍</span>
+                    <span className='emoji'>🦊</span>
                     <h1 className='auth_title'>Hey there!</h1>
                     <p>Ready to make sure your API works?</p>
                 </div>
@@ -27,8 +27,9 @@ function LogIn() {
                         value={email}
                         type='email'
                         id='email'
-                        className='email_input'
+                        className='signin-box'
                         placeholder='Your Email'
+                        onChange={e => setEmail(e.target.value)} // Had to look this one up because text wouldnt show up when typed in on the last implementation
                     />
                 </div>
                 <div className='password'>
@@ -37,8 +38,9 @@ function LogIn() {
                         value={password}
                         type='password'
                         id='password'
-                        className='password_input'
+                        className='signin-box'
                         placeholder='Secure Password'
+                        onChange={e => setPassword(e.target.value)} // Had to look this one up because text wouldnt show up when typed in on the last implementation
                     />
                 </div>
                 <button type='submit' className='signin_button'>
