@@ -1,6 +1,5 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Import router components
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './home/Home';
 import AccountPage from './account/AccountPage';
 import '../styles/dashboard_style.css';
@@ -21,5 +20,7 @@ function App() {
     );
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(
+    document.getElementById('root') as HTMLElement,
+);
 root.render(<App />);

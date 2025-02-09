@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import '../../styles/auth_style.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,8 +7,8 @@ function LogIn() {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-    const handleSubmit = e => {
-        e.preventDefault();
+    const handleSubmit = (event: FormEvent) => {
+        event.preventDefault();
         console.log(email, password);
         navigate('/');
     };

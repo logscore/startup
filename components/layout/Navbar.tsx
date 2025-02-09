@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Navbar() {
@@ -22,7 +21,7 @@ function Navbar() {
                 >
                     <img src='./assets/github.svg' alt='GitHub' />
                 </button>
-                <button className='docs_button'>
+                <button>
                     <img src='./assets/docs.svg' alt='Documentation' />
                 </button>
                 <button onClick={() => navigate('/account')}>

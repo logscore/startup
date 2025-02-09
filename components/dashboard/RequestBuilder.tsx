@@ -1,6 +1,4 @@
-import React from 'react';
-
-function TestBuilder() {
+function RequestBuilder() {
     return (
         <div className='content-box'>
             <h2>Test Builder</h2>
@@ -111,4 +109,4 @@ function TestBuilder() {
     );
 }
 
-export default TestBuilder;
+export default RequestBuilder;

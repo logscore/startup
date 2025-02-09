@@ -39,10 +39,12 @@ nav {
     border: transparent;
     border-radius: 2rem;
     color: #e0e0e0;
+    transition: 0.3s;
 }
 
 .nav_links button:hover {
     background-color: #1a1a1a;
+    border: 2px solid #ffd700;
     color: #ffd700;
 }
 
@@ -165,6 +167,24 @@ nav {
     border: 1px solid #ffd700;
 }
 
+.custom-button {
+    height: 2rem;
+    width: 8rem;
+    color: #1a1a1a;
+    background-color: #ffd700;
+    border: transparent;
+    border-radius: 0.25rem;
+    font-weight: 600;
+    margin-bottom: 0;
+    transition: all 0.3s;
+}
+
+.custom-button:hover {
+    background-color: #333;
+    border: 2px solid #ffd700;
+    color: #ffd700;
+}
+
 .save-button {
     height: 2rem;
     width: 8rem;
@@ -175,9 +195,10 @@ nav {
     font-weight: 600;
     margin: auto;
     margin-bottom: 2rem;
+    transition: all 0.3s;
 }
 
-.test-button:hover {
+.save-button:hover {
     background-color: #333;
     border: 2px solid #ffd700;
     color: #ffd700;

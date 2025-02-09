@@ -6,11 +6,15 @@ body {
     min-height: 100vh;
 }
 
+.page-container {
+    height: 100vh;
+}
+
 .account-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-grow: 1;
+    height: 90%;
 }
 
 .account-box {
