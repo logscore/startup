@@ -1,4 +1,7 @@
 import { useNavigate } from 'react-router-dom';
+import Github from '../../public/assets/Github';
+import UserIcon from '../../public/assets/UserIcon';
+import DocsIcon from '../../public/assets/DocsIcon';
 
 function Navbar() {
     const navigate = useNavigate(); // Create a navigate function
@@ -19,13 +22,13 @@ function Navbar() {
                             'https://github.com/logscore/startup')
                     }
                 >
-                    <img src='./assets/github.svg' alt='GitHub' />
+                    <Github />
                 </button>
                 <button>
-                    <img src='./assets/docs.svg' alt='Documentation' />
+                    <DocsIcon />
                 </button>
                 <button onClick={() => navigate('/account')}>
-                    <img src='./assets/user_account.svg' alt='User account' />
+                    <UserIcon />
                 </button>
             </div>
         </nav>

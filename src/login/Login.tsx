@@ -1,16 +1,55 @@
-import { FormEvent, useState } from 'react';
+import React, { useState } from 'react';
 import '../../styles/auth_style.css';
-import { useNavigate } from 'react-router-dom';
 
-function LogIn() {
+interface LoginProps {
+    setToken: (userToken: { token: string }) => void;
+}
+
+// interface Credentials {
+//     email: string;
+//     password: string;
+// }
+
+async function loginUser(/*credentials: Credentials*/) {
+    try {
+        // const response = await fetch('<whatever auth endpoint you make>', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(credentials),
+        // });
+
+        // if (!response.ok) {
+        //     throw new Error('Invalid login credentials');
+        // }
+        //
+        // return await response.json();
+
+        return {
+            token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.fakePayload.fakeSignature',
+        };
+    } catch (error: any) {
+        console.error('Error logging in:', error);
+        throw error;
+    }
+}
+
+function Login({ setToken }: LoginProps) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const navigate = useNavigate();
+    const [error, setError] = useState('');
 
-    const handleSubmit = (event: FormEvent) => {
-        event.preventDefault();
-        console.log(email, password);
-        navigate('/');
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setError('');
+
+        try {
+            const token = await loginUser(/*{ email, password }*/);
+            setToken(token);
+        } catch (error: any) {
+            setError(error.message);
+        }
     };
 
     return (
@@ -30,6 +69,7 @@ function LogIn() {
                         className='signin-box'
                         placeholder='Your Email'
                         onChange={e => setEmail(e.target.value)} // Had to look this one up because text wouldn't show up when typed in on the last implementation
+                        // required
                     />
                 </div>
                 <div className='password'>
@@ -41,8 +81,20 @@ function LogIn() {
                         className='signin-box'
                         placeholder='Secure Password'
                         onChange={e => setPassword(e.target.value)} // Had to look this one up because text wouldn't show up when typed in on the last implementation
+                        // required
                     />
                 </div>
+                {error && (
+                    <p
+                        style={{
+                            color: 'red',
+                            textAlign: 'center',
+                            margin: '16px',
+                        }}
+                    >
+                        {error}
+                    </p>
+                )}
                 <button type='submit' className='signin_button'>
                     Sign In
                 </button>
@@ -51,4 +103,4 @@ function LogIn() {
     );
 }
 
-export default LogIn;
+export default Login;

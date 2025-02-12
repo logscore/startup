@@ -1,10 +1,12 @@
 import Footer from '../../components/layout/Footer';
 import Navbar from '../../components/layout/Navbar';
 import '../../styles/account_style.css';
-import { useNavigate } from 'react-router-dom';
 
 function AccountPage() {
-    const navigate = useNavigate();
+    function handlelogout() {
+        localStorage.removeItem('token');
+        window.location.reload();
+    }
 
     return (
         <div className='page-container'>
@@ -15,7 +17,7 @@ function AccountPage() {
                         <p>youremail@website.com</p>
                         <button
                             className='signout_button'
-                            onClick={() => navigate('/login')}
+                            onClick={handlelogout}
                         >
                             Sign out
                         </button>
