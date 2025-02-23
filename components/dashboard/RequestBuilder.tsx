@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 function RequestBuilder() {
+    // uncomment these when you are using a backend
     const [url, setUrl] = useState('');
     const [endpoint, setEndpoint] = useState('');
     const [method, setMethod] = useState('GET');
@@ -61,13 +62,16 @@ function RequestBuilder() {
                 method: string;
                 headers: { key: string; value: string }[];
                 body: string;
+                statusCode: string;
             }[] = [
+                // TODO: This will be changed to just include one object not in an array. Make sure to fix the other instances of handing this data
                 {
-                    url: 'https://hanko.io',
-                    endpoint: '/auth',
-                    method: 'GET',
-                    headers: [{ key: '', value: '' }],
-                    body: '',
+                    url: url,
+                    endpoint: endpoint,
+                    method: method,
+                    headers: headers,
+                    body: body,
+                    statusCode: '100',
                 },
                 {
                     url: 'https://cal.com',
@@ -75,6 +79,7 @@ function RequestBuilder() {
                     method: 'DELETE',
                     headers: [{ key: '', value: '' }],
                     body: '',
+                    statusCode: '300',
                 },
                 {
                     url: 'https://goonsquad.com',
@@ -82,6 +87,7 @@ function RequestBuilder() {
                     method: 'POST',
                     headers: [{ key: '', value: '' }],
                     body: '',
+                    statusCode: '400',
                 },
                 {
                     url: 'https://formbricks.com',
@@ -89,6 +95,7 @@ function RequestBuilder() {
                     method: 'PUT',
                     headers: [{ key: '', value: '' }],
                     body: '',
+                    statusCode: '500',
                 },
             ];
             localStorage.setItem('request', JSON.stringify(requestObj));

@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useState } from 'react';
 
-function methodColor(value) {
+function methodColor(value: string) {
     switch (value) {
         case 'GET':
             return '2px solid #28A745';
@@ -14,19 +14,36 @@ function methodColor(value) {
     }
 }
 
-function returnCodeColor(value) {
-    // ill implement a return code color scheme for 200 (green), 300 (grey), 400 (red), and 500 (blue) codes
+function statusCodeColor(value: string) {
+    switch (value) {
+        case '2':
+            return ' #28A745';
+        case '3':
+            return ' #7d7d7d';
+        case '4':
+            return ' #d90a0a';
+        case '5':
+            return '#558ce5';
+        default:
+            return ' #ffffff';
+    }
 }
 
 function TestsExplorer() {
     const [tab, setTab] = useState(1);
-    const [rows, setRows] = useState([]);
+    const [rows, setRows] = useState<
+        {
+            url: string;
+            endpoint: string;
+            method: string;
+            headers: { key: string; value: string }[];
+            body: string;
+            statusCode: string;
+        }[]
+    >([]);
 
     //note that this impementation will need to change as it only pulls a single entry from local storage. a better soution is to have an array of json objects with the values and iterate over them when displaying the rows
     useEffect(() => {
-        // const code: string | null = localStorage.getItem('responseCode');
-        // const codeJSON = code ? JSON.parse(code) : null;
-        // console.log(codeJSON);
         const request: string | null = localStorage.getItem('request');
         const requestJSON = request ? JSON.parse(request) : null;
         // console.log(requestJSON);
@@ -34,7 +51,6 @@ function TestsExplorer() {
         setRows(requestJSON);
     }, []);
 
-    console.log(rows);
     return (
         <div className='routes'>
             <div className='table'>
@@ -58,14 +74,21 @@ function TestsExplorer() {
                                     </div>
                                 </div>
                                 <div className='cell'>
-                                    <div className='response-code'>200</div>
+                                    <div
+                                        className='response-code'
+                                        style={{
+                                            backgroundColor: statusCodeColor(
+                                                row.statusCode[0],
+                                            ),
+                                        }}
+                                    >
+                                        {row.statusCode}
+                                    </div>
                                 </div>
                             </div>
                         );
                     })
                 ) : (
-                    //     );
-                    // })
                     <p style={{ margin: '1rem' }}>
                         No tests to explore! Begin by sending your first
                         endpoint request!
