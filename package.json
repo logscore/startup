@@ -11,6 +11,7 @@
         "deploy": "sudo ./deployReact.sh -k ~/.ssh/cs260-ec2.pem -h demodel.click -s startup"
     },
     "dependencies": {
+        "child_process": "^1.0.2",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
         "react-router-dom": "^7.1.5"
@@ -19,6 +20,7 @@
         "@eslint/js": "^9.19.0",
         "@types/cors": "^2.8.17",
         "@types/css-modules": "^1.0.5",
+        "@types/express": "^5.0.0",
         "@types/node": "^22.13.1",
         "@types/react": "^19.0.8",
         "@types/react-dom": "^19.0.3",

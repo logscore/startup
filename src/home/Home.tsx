@@ -7,7 +7,7 @@ function Home() {
     return (
         <>
             <Navbar />
-            <div style={{ display: 'flex' }} className='content-container'>
+            <div className='content-container'>
                 <RequestBuilder />
                 <TestsExplorer />
             </div>

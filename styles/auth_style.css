@@ -82,10 +82,9 @@ h1 {
 }
 
 footer {
-    background-color: #333;
-    color: white;
+    background-color: #252525;
+    color: #888;
     text-align: center;
-    padding: 10px;
-    position: relative;
-    bottom: 0;
+    padding: 2px;
+    border-top: 1px solid #333;
 }

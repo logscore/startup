@@ -1,29 +1,31 @@
+#root {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
 body {
     font-family: 'Courier New', Courier, monospace;
     margin: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
 }
 
 .page-container {
-    height: 100vh;
-}
-
-.account-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 90%;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .account-box {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
+    flex-grow: 1;
 }
 
 .signout_button {
-    margin: auto;
     cursor: pointer;
     height: 3rem;
     width: 7rem;
@@ -43,10 +45,9 @@ body {
 }
 
 footer {
-    background-color: #333;
-    color: white;
+    background-color: #252525;
+    color: #888;
     text-align: center;
-    padding: 10px;
-    position: relative;
-    bottom: 0;
+    padding: 2px;
+    border-top: 1px solid #333;
 }

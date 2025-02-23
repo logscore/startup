@@ -4,7 +4,7 @@ import UserIcon from '../../public/assets/UserIcon';
 import DocsIcon from '../../public/assets/DocsIcon';
 
 function Navbar() {
-    const navigate = useNavigate(); // Create a navigate function
+    const navigate = useNavigate();
 
     return (
         <nav className='index_nav'>
