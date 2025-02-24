@@ -78,3 +78,7 @@ logic. The program then genertes the types and docs.
 -   Added in an npm command to deploy the application automagically
 
 ### React pt. 2
+
+- Added storage of form info into local storage
+- made the list dynamic in both color and listing data in the bottom request explorer
+- added checks for data and displaying "no data" defaults
