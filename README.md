@@ -6,24 +6,13 @@ startup project for cs260, and also real pivot for my startup lol
 
 ## The Pitch
 
-Building SDKs for complex multi-route multi-resource APIs is time consuming and
-often a big sink of developer time that could be used on something better like
-bug fixes, enhanced performance, and new features. SDK builder applications
-exist, but miss the mark. They are end to end and can generate types, docs, and
-functions in your language of choice, but for complex and unique applicaions,
-teams really just want to generate the model and write the logic themselves. I
-have set out to fix this issue. I aim to build a program that can take an
-OpenAPI spec file, and generate types and allow the user to write their own
-logic. The program then genertes the types and docs.
+Testing endpoints is becoming too complex. We dont need Postman or any of these
+crazy tools. You just need CURL. So this is what it is. This is a GUI for base
+functionality of CURL so you can make and analyze requests to your endpoint.
 
 ## Key Features
 
--   Generate types based on OpenAPI yaml file specifications.
--   Generate docs based on OpenAPI yaml file specifications.
--   Package and push the SDK to your package repo of choice.
--   Maybe generate basic test cases for the SDK based on the OpenAPI spec. Not
-    sure if users want this.
--   Maybe generate SDK logic, depending on how much time I have to work on this.
+-   make, store, and analyze your api endpoint requests for testing purposes
 
 ## Technology Breakdown
 
@@ -33,18 +22,19 @@ logic. The program then genertes the types and docs.
 -   CSS: Used to style the webpages using folowing a style guide for sizes,
     spacing, padding, margin, and things like that. Might use M3 or GitHubs
     Primer system. IDK, we'll see.
--   Javascript (can i use typescript here?): login, option functionality,
-    display stored SDKs.
--   React: Build components such as SDK options, a github/gitlab module, account
-    pop up. Used for general routing.
+-   Javascript (can i use typescript here?): login, displaying dynamic data,
+    display stored requests.
+-   React: Build components such as CURL request builder, request analyzer,
+    response analyzer. Used for general routing.
 -   Backend:
     -   Login service, probably just hash them.
-    -   YAML parser.
-    -   Process parsed data and generates docs/types based on the spec.
-    -   Call GitHub and GitLab API for quick version control for SDKs.
--   MongoDB: Stores user auth data, genrated types, and generated docs.
--   Websocket: No idea what I would use a websocket for in this application.
-    Maybe a counter of SDKs generated, or a live chat for collaboration.
+    -   CURL request handling
+    -   request and store requests and responses
+    -   Run a websocket for a db collection to dynamically update the requests
+        table
+-   MongoDB: Stores user auth data, CURL requests and responses
+-   Websocket: Listening to the DB for changes (new request && response entry)
+    and updates the requests table
 
 ## Design
 
@@ -79,6 +69,7 @@ logic. The program then genertes the types and docs.
 
 ### React pt. 2
 
-- Added storage of form info into local storage
-- made the list dynamic in both color and listing data in the bottom request explorer
-- added checks for data and displaying "no data" defaults
+-   Added storage of form info into local storage
+-   made the list dynamic in both color and listing data in the bottom request
+    explorer
+-   added checks for data and displaying "no data" defaults
