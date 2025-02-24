@@ -5,11 +5,10 @@ function RequestExplorer(data: any) {
 
     const selectedTestIndex = data.data.selectedTest;
     const testIndex = selectedTestIndex ? selectedTestIndex : null;
-    console.log(testIndex);
 
-    const row = data.data.rows[testIndex];
+    const rows = data.data.rows;
+    const row = rows ? rows[testIndex] : null;
     const rowData = row ? row : null;
-    console.log(rowData);
 
     return (
         <div className='request-explorer'>
