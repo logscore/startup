@@ -1,5 +1,5 @@
 import RequestBuilder from '../../components/dashboard/RequestBuilder';
-import TestsExplorer from '../../components/dashboard/TestsExplorer';
+import TestsExplorer from '../../components/dashboard/TestsTable';
 import Navbar from '../../components/layout/Navbar';
 import Footer from '../../components/layout/Footer';
 

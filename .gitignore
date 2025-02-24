@@ -2,6 +2,7 @@
 private_notes.md
 package-lock.json
 mock
+lib/db_schema.json
 
 # Logs
 logs

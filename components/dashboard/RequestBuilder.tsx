@@ -63,6 +63,8 @@ function RequestBuilder() {
                 headers: { key: string; value: string }[];
                 body: string;
                 statusCode: string;
+                curl: string;
+                curlResponse: string;
             }[] = [
                 // TODO: This will be changed to just include one object not in an array. Make sure to fix the other instances of handing this data
                 {
@@ -71,31 +73,55 @@ function RequestBuilder() {
                     method: method,
                     headers: headers,
                     body: body,
-                    statusCode: '100',
+                    statusCode: '200',
+                    curl: `curl -X GET "https://official-joke-api.appspot.com/jokes/programming/random`,
+                    curlResponse: `{"type":"programming","setup":"Why was the JavaScript developer sad?","punchline":"He didn't know how to null his feelings.","id":420}]`,
                 },
                 {
-                    url: 'https://cal.com',
+                    url: 'https://reqres.in/api/users/2',
                     endpoint: '/user',
                     method: 'DELETE',
                     headers: [{ key: '', value: '' }],
                     body: '',
                     statusCode: '300',
+                    curl: `curl -X DELETE "https://reqres.in/api/users/2"`,
+                    curlResponse: ``,
                 },
                 {
-                    url: 'https://goonsquad.com',
-                    endpoint: '/health',
+                    url: 'https://reqres.in/api/users',
+                    endpoint: '/api/users',
                     method: 'POST',
-                    headers: [{ key: '', value: '' }],
-                    body: '',
+                    headers: [
+                        { key: 'Content-Type', value: 'application/json' },
+                    ],
+                    body: '{"name": "John Doe", "job": "Developer"}',
                     statusCode: '400',
+                    curl: `curl -X POST "https://reqres.in/api/users" \\
+    -H "Content-Type: application/json" \\
+    -d '{"name": "John Doe", "job": "Developer"}'
+`,
+                    curlResponse: `{
+    name: 'John Doe',
+    job: 'Developer',
+    id: '121',
+    createdAt: '2025-02-24T00:37:28.418Z',
+}`,
                 },
                 {
-                    url: 'https://formbricks.com',
+                    url: 'https://reqres.in/api/users/2',
                     endpoint: '/forms',
                     method: 'PUT',
                     headers: [{ key: '', value: '' }],
                     body: '',
                     statusCode: '500',
+                    curl: `curl -X PUT "https://reqres.in/api/users/2" \\
+    -H "Content-Type: application/json" \\
+    -d '{"name": "John Doe", "job": "Senior Developer"}'`,
+                    curlResponse: `{
+    name: 'John Doe',
+    job: 'Senior Developer',
+    updatedAt: '2025-02-24T00:42:51.002Z',
+}`,
                 },
             ];
             localStorage.setItem('request', JSON.stringify(requestObj));
@@ -119,7 +145,6 @@ function RequestBuilder() {
         <form onSubmit={handleSubmit}>
             <div className='content-box'>
                 <h2>Test Builder</h2>
-
                 <div>
                     <label>API URL: </label>
                     <input
@@ -130,7 +155,6 @@ function RequestBuilder() {
                         onChange={e => setUrl(e.target.value)}
                     />
                 </div>
-
                 <div>
                     <label>Endpoint: </label>
                     <input
@@ -141,7 +165,6 @@ function RequestBuilder() {
                         onChange={e => setEndpoint(e.target.value)}
                     />
                 </div>
-
                 <div className='method'>
                     <h3>Method</h3>
                     <select
@@ -155,7 +178,6 @@ function RequestBuilder() {
                         <option value='DELETE'>DELETE</option>
                     </select>
                 </div>
-
                 <div>
                     <h3>Headers</h3>
                     {headers.map((header, index) => (
@@ -193,37 +215,6 @@ function RequestBuilder() {
                         </div>
                     ))}
                 </div>
-                {/* 
-                <div>
-                    <h3>Query Parameters</h3>
-                    <div>
-                        <input
-                            className='input-box'
-                            type='text'
-                            placeholder='Query Key'
-                        />
-                        <input
-                            className='input-box'
-                            type='text'
-                            placeholder='Query Value'
-                        />
-                        // <button className='content-box-button'>+</button>
-                    </div>
-                    <div>
-                        <input
-                            className='input-box'
-                            type='text'
-                            placeholder='Query Key'
-                        />
-                        <input
-                            className='input-box'
-                            type='text'
-                            placeholder='Query Value'
-                        />
-                        // <button className='content-box-button'>+</button>
-                    </div>
-                </div> */}
-
                 <div className='request-body'>
                     <h3>Request Body</h3>
                     <textarea
@@ -231,23 +222,12 @@ function RequestBuilder() {
                         onChange={e => setBody(e.target.value)}
                     />
                 </div>
-                {/* 
-                <div className='authentication'>
-                    <h3>Authentication</h3>
-                    <select>
-                        <option value='none'>None</option>
-                        <option value='basic'>Basic Auth</option>
-                        <option value='bearer'>Bearer Token</option>
-                    </select>
-                    <div className='auth-inputs'>
-                        <input type='text' placeholder='Username' />
-                        <input type='password' placeholder='Password' />
-                    </div>
-                    <div className='auth-inputs'>
-                        <input type='text' placeholder='Bearer Token' />
-                    </div>
-                </div> */}
-                <button type='submit' className='save-button'>
+                {/* TODO: This page refrest will be replaced with a websocket listener for the db to see when new entries are made */}
+                <button
+                    type='submit'
+                    className='save-button'
+                    onClick={() => window.location.reload()}
+                >
                     Save
                 </button>
             </div>
