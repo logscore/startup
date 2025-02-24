@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import Github from '../../public/assets/Github';
-import UserIcon from '../../public/assets/UserIcon';
-import DocsIcon from '../../public/assets/DocsIcon';
+import Github from '../../assets/Github';
+import UserIcon from '../../assets/UserIcon';
+import DocsIcon from '../../assets/DocsIcon';
 
 function Navbar() {
     const navigate = useNavigate();
