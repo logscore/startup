@@ -29,115 +29,111 @@ function RequestBuilder() {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        if (url === '') {
+        } else {
+            try {
+                // const requestBody: {
+                //     url: string;
+                //     endpoint: string;
+                //     method: string;
+                //     headers: { key: string; value: string }[];
+                //     body: string;
+                // } = {
+                //     url: url,
+                //     endpoint: endpoint,
+                //     method: method,
+                //     headers: headers,
+                //     body: body,
+                // };
+                // const response = await fetch('http://localhost:8080/curl', {
+                //     method: 'POST',
+                //     headers: {
+                //         'Content-Type': 'application/json',
+                //     },
+                //     body: JSON.stringify(requestBody),
+                // });
 
-        try {
-            // const requestBody: {
-            //     url: string;
-            //     endpoint: string;
-            //     method: string;
-            //     headers: { key: string; value: string }[];
-            //     body: string;
-            // } = {
-            //     url: url,
-            //     endpoint: endpoint,
-            //     method: method,
-            //     headers: headers,
-            //     body: body,
-            // };
-            // const response = await fetch('http://localhost:8080/curl', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify(requestBody),
-            // });
-
-            // if (!response.ok) {
-            //     throw new Error('An error has occured while making request');
-            // }
-            // const res = await response.json();
-            const requestObj: {
-                url: string;
-                endpoint: string;
-                method: string;
-                headers: { key: string; value: string }[];
-                body: string;
-                statusCode: string;
-                curl: string;
-                curlResponse: string;
-            }[] = [
-                // TODO: This will be changed to just include one object not in an array. Make sure to fix the other instances of handing this data
-                {
-                    url: url,
-                    endpoint: endpoint,
-                    method: method,
-                    headers: headers,
-                    body: body,
-                    statusCode: '200',
-                    curl: `curl -X GET "https://official-joke-api.appspot.com/jokes/programming/random`,
-                    curlResponse: `{"type":"programming","setup":"Why was the JavaScript developer sad?","punchline":"He didn't know how to null his feelings.","id":420}]`,
-                },
-                {
-                    url: 'https://reqres.in/api/users/2',
-                    endpoint: '/user',
-                    method: 'DELETE',
-                    headers: [{ key: '', value: '' }],
-                    body: '',
-                    statusCode: '300',
-                    curl: `curl -X DELETE "https://reqres.in/api/users/2"`,
-                    curlResponse: ``,
-                },
-                {
-                    url: 'https://reqres.in/api/users',
-                    endpoint: '/api/users',
-                    method: 'POST',
-                    headers: [
-                        { key: 'Content-Type', value: 'application/json' },
-                    ],
-                    body: '{"name": "John Doe", "job": "Developer"}',
-                    statusCode: '400',
-                    curl: `curl -X POST "https://reqres.in/api/users" \\
+                // if (!response.ok) {
+                //     throw new Error('An error has occured while making request');
+                // }
+                // const res = await response.json();
+                const requestObj: {
+                    url: string;
+                    endpoint: string;
+                    method: string;
+                    headers: { key: string; value: string }[];
+                    body: string;
+                    statusCode: string;
+                    curl: string;
+                    curlResponse: string;
+                }[] = [
+                    // TODO: This will be changed to just include one object not in an array. Make sure to fix the other instances of handing this data
+                    {
+                        url: url,
+                        endpoint: endpoint,
+                        method: method,
+                        headers: headers,
+                        body: body,
+                        statusCode: '200',
+                        curl: `curl -X GET "https://official-joke-api.appspot.com/jokes/programming/random`,
+                        curlResponse: `{"type":"programming","setup":"Why was the JavaScript developer sad?","punchline":"He didn't know how to null his feelings.","id":420}]`,
+                    },
+                    {
+                        url: 'https://reqres.in/api/users/2',
+                        endpoint: '/user',
+                        method: 'DELETE',
+                        headers: [{ key: '', value: '' }],
+                        body: '',
+                        statusCode: '300',
+                        curl: `curl -X DELETE "https://reqres.in/api/users/2"`,
+                        curlResponse: ``,
+                    },
+                    {
+                        url: 'https://reqres.in/api/users',
+                        endpoint: '/api/users',
+                        method: 'POST',
+                        headers: [
+                            { key: 'Content-Type', value: 'application/json' },
+                        ],
+                        body: '{"name": "John Doe", "job": "Developer"}',
+                        statusCode: '400',
+                        curl: `curl -X POST "https://reqres.in/api/users" \\
     -H "Content-Type: application/json" \\
     -d '{"name": "John Doe", "job": "Developer"}'
 `,
-                    curlResponse: `{
+                        curlResponse: `{
     name: 'John Doe',
     job: 'Developer',
     id: '121',
     createdAt: '2025-02-24T00:37:28.418Z',
 }`,
-                },
-                {
-                    url: 'https://reqres.in/api/users/2',
-                    endpoint: '/forms',
-                    method: 'PUT',
-                    headers: [{ key: '', value: '' }],
-                    body: '',
-                    statusCode: '500',
-                    curl: `curl -X PUT "https://reqres.in/api/users/2" \\
+                    },
+                    {
+                        url: 'https://reqres.in/api/users/2',
+                        endpoint: '/forms',
+                        method: 'PUT',
+                        headers: [{ key: '', value: '' }],
+                        body: '',
+                        statusCode: '500',
+                        curl: `curl -X PUT "https://reqres.in/api/users/2" \\
     -H "Content-Type: application/json" \\
     -d '{"name": "John Doe", "job": "Senior Developer"}'`,
-                    curlResponse: `{
+                        curlResponse: `{
     name: 'John Doe',
     job: 'Senior Developer',
     updatedAt: '2025-02-24T00:42:51.002Z',
 }`,
-                },
-            ];
-            localStorage.setItem('request', JSON.stringify(requestObj));
-            localStorage.setItem(
-                'responseCode',
-                JSON.stringify({ code: '200' }),
-            );
-            // localStorage.setItem('response', res.response[1]);
-            // localStorage.setItem('responseCode', res.response[2]);
-            const localItem = localStorage.getItem('request');
-            console.log(localItem);
+                    },
+                ];
+                localStorage.setItem('request', JSON.stringify(requestObj));
 
-            return;
-        } catch (error: any) {
-            console.error('Error making request on client:', error);
-            throw error;
+                window.location.reload();
+
+                return;
+            } catch (error: any) {
+                console.error('Error making request on client:', error);
+                throw error;
+            }
         }
     };
 
@@ -145,17 +141,18 @@ function RequestBuilder() {
         <form onSubmit={handleSubmit}>
             <div className='content-box'>
                 <h2>Test Builder</h2>
-                <div>
+                <div className='input_row'>
                     <label>API URL: </label>
                     <input
                         className='input-box'
-                        type='text'
+                        type='url'
                         placeholder='https://api.example.com'
                         style={{ width: '300px' }}
                         onChange={e => setUrl(e.target.value)}
+                        required
                     />
                 </div>
-                <div>
+                <div className='input_row'>
                     <label>Endpoint: </label>
                     <input
                         className='input-box'
@@ -223,11 +220,7 @@ function RequestBuilder() {
                     />
                 </div>
                 {/* TODO: This page refrest will be replaced with a websocket listener for the db to see when new entries are made */}
-                <button
-                    type='submit'
-                    className='save-button'
-                    onClick={() => window.location.reload()}
-                >
+                <button type='submit' className='save-button'>
                     Save
                 </button>
             </div>
