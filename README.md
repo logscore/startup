@@ -73,3 +73,8 @@ functionality of CURL so you can make and analyze requests to your endpoint.
 -   made the list dynamic in both color and listing data in the bottom request
     explorer
 -   added checks for data and displaying "no data" defaults
+
+### Service
+
+-   Use openstatus as the external service. Make it be a tile on the page that
+    is the "status" thing.

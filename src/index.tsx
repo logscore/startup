@@ -8,25 +8,25 @@ import ErrorPage from './error/ErrorPage';
 import useToken from '../lib/login';
 
 function App() {
-    const { token, setToken } = useToken();
+	const { token, setToken } = useToken();
 
-    if (!token) {
-        return <Login setToken={setToken} />;
-    }
+	if (!token) {
+		return <Login setToken={setToken} />;
+	}
 
-    return (
-        <Router>
-            {' '}
-            <Routes>
-                <Route path='/' element={<Home />} />
-                <Route path='/account' element={<AccountPage />} />
-                <Route path='*' element={<ErrorPage />} />
-            </Routes>
-        </Router>
-    );
+	return (
+		<Router>
+			{' '}
+			<Routes>
+				<Route path='/' element={<Home />} />
+				<Route path='/account' element={<AccountPage />} />
+				<Route path='*' element={<ErrorPage />} />
+			</Routes>
+		</Router>
+	);
 }
 
 const root = ReactDOM.createRoot(
-    document.getElementById('root') as HTMLElement,
+	document.getElementById('root') as HTMLElement,
 );
 root.render(<App />);
