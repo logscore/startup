@@ -11,13 +11,18 @@
 		"deploy": "sudo ./deployReact.sh -k ~/.ssh/cs260-startup-logan.pem -h demodel.click -s startup"
 	},
 	"dependencies": {
+		"bcrypt": "^5.1.1",
 		"child_process": "^1.0.2",
+		"cookie-parser": "^1.4.7",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0",
-		"react-router-dom": "^7.1.5"
+		"react-router-dom": "^7.1.5",
+		"uuid": "^11.1.0"
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.19.0",
+		"@types/bcrypt": "^5.0.2",
+		"@types/cookie-parser": "^1.4.8",
 		"@types/cors": "^2.8.17",
 		"@types/css-modules": "^1.0.5",
 		"@types/express": "^5.0.0",

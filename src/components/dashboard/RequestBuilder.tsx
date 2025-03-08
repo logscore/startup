@@ -31,102 +31,106 @@ function RequestBuilder() {
 		if (url === '') {
 		} else {
 			try {
-				// const requestBody: {
-				//     url: string;
-				//     endpoint: string;
-				//     method: string;
-				//     headers: { key: string; value: string }[];
-				//     body: string;
-				// } = {
-				//     url: url,
-				//     endpoint: endpoint,
-				//     method: method,
-				//     headers: headers,
-				//     body: body,
-				// };
-				// const response = await fetch('http://localhost:8080/curl', {
-				//     method: 'POST',
-				//     headers: {
-				//         'Content-Type': 'application/json',
-				//     },
-				//     body: JSON.stringify(requestBody),
-				// });
-
-				// if (!response.ok) {
-				//     throw new Error('An error has occured while making request');
-				// }
-				// const res = await response.json();
-				const requestObj: {
+				const requestBody: {
 					url: string;
 					endpoint: string;
 					method: string;
 					headers: { key: string; value: string }[];
 					body: string;
-					statusCode: string;
-					curl: string;
-					curlResponse: string;
-				}[] = [
-					// TODO: This will be changed to just include one object not in an array. Make sure to fix the other instances of handing this data
-					{
-						url: url,
-						endpoint: endpoint,
-						method: method,
-						headers: headers,
-						body: body,
-						statusCode: '200',
-						curl: `curl -X GET "https://official-joke-api.appspot.com/jokes/programming/random`,
-						curlResponse: `{"type":"programming","setup":"Why was the JavaScript developer sad?","punchline":"He didn't know how to null his feelings.","id":420}]`,
+				} = {
+					url: url,
+					endpoint: endpoint,
+					method: method,
+					headers: headers,
+					body: body,
+				};
+				console.log(requestBody);
+				const response = await fetch('http://localhost:4000/curl', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
 					},
-					{
-						url: 'https://reqres.in/api/users/2',
-						endpoint: '/user',
-						method: 'DELETE',
-						headers: [{ key: '', value: '' }],
-						body: '',
-						statusCode: '300',
-						curl: `curl -X DELETE "https://reqres.in/api/users/2"`,
-						curlResponse: ``,
-					},
-					{
-						url: 'https://reqres.in/api/users',
-						endpoint: '/api/users',
-						method: 'POST',
-						headers: [
-							{ key: 'Content-Type', value: 'application/json' },
-						],
-						body: '{"name": "John Doe", "job": "Developer"}',
-						statusCode: '400',
-						curl: `curl -X POST "https://reqres.in/api/users" \\
-    -H "Content-Type: application/json" \\
-    -d '{"name": "John Doe", "job": "Developer"}'
-`,
-						curlResponse: `{
-    name: 'John Doe',
-    job: 'Developer',
-    id: '121',
-    createdAt: '2025-02-24T00:37:28.418Z',
-}`,
-					},
-					{
-						url: 'https://reqres.in/api/users/2',
-						endpoint: '/forms',
-						method: 'PUT',
-						headers: [{ key: '', value: '' }],
-						body: '',
-						statusCode: '500',
-						curl: `curl -X PUT "https://reqres.in/api/users/2" \\
-    -H "Content-Type: application/json" \\
-    -d '{"name": "John Doe", "job": "Senior Developer"}'`,
-						curlResponse: `{
-    name: 'John Doe',
-    job: 'Senior Developer',
-    updatedAt: '2025-02-24T00:42:51.002Z',
-}`,
-					},
-				];
-				localStorage.setItem('request', JSON.stringify(requestObj));
+					body: JSON.stringify(requestBody),
+				});
 
-				window.location.reload();
+				console.log(response);
+
+				if (!response.ok) {
+					throw new Error(
+						'An error has occured while making request',
+					);
+				}
+				// 				const requestObj: {
+				// 					url: string;
+				// 					endpoint: string;
+				// 					method: string;
+				// 					headers: { key: string; value: string }[];
+				// 					body: string;
+				// 					statusCode: string;
+				// 					curl: string;
+				// 					curlResponse: string;
+				// 				}[] = [
+				// 					// TODO: This will be changed to just include one object not in an array. Make sure to fix the other instances of handing this data
+				// 					{
+				// 						url: url,
+				// 						endpoint: endpoint,
+				// 						method: method,
+				// 						headers: headers,
+				// 						body: body,
+				// 						statusCode: 's',
+				// 						curl: `curl -X GET "https://official-joke-api.appspot.com/jokes/programming/random`,
+				// 						curlResponse: `{"type":"programming","setup":"Why was the JavaScript developer sad?","punchline":"He didn't know how to null his feelings.","id":420}]`,
+				// 					},
+				// 					{
+				// 						url: 'https://reqres.in/api/users/2',
+				// 						endpoint: '/user',
+				// 						method: 'DELETE',
+				// 						headers: [{ key: '', value: '' }],
+				// 						body: '',
+				// 						statusCode: '300',
+				// 						curl: `curl -X DELETE "https://reqres.in/api/users/2"`,
+				// 						curlResponse: ``,
+				// 					},
+				// 					{
+				// 						url: 'https://reqres.in/api/users',
+				// 						endpoint: '/api/users',
+				// 						method: 'POST',
+				// 						headers: [
+				// 							{ key: 'Content-Type', value: 'application/json' },
+				// 						],
+				// 						body: '{"name": "John Doe", "job": "Developer"}',
+				// 						statusCode: '400',
+				// 						curl: `curl -X POST "https://reqres.in/api/users" \\
+				//     -H "Content-Type: application/json" \\
+				//     -d '{"name": "John Doe", "job": "Developer"}'
+				// `,
+				// 						curlResponse: `{
+				//     name: 'John Doe',
+				//     job: 'Developer',
+				//     id: '121',
+				//     createdAt: '2025-02-24T00:37:28.418Z',
+				// }`,
+				// 					},
+				// 					{
+				// 						url: 'https://reqres.in/api/users/2',
+				// 						endpoint: '/forms',
+				// 						method: 'PUT',
+				// 						headers: [{ key: '', value: '' }],
+				// 						body: '',
+				// 						statusCode: '500',
+				// 						curl: `curl -X PUT "https://reqres.in/api/users/2" \\
+				//     -H "Content-Type: application/json" \\
+				//     -d '{"name": "John Doe", "job": "Senior Developer"}'`,
+				// 						curlResponse: `{
+				//     name: 'John Doe',
+				//     job: 'Senior Developer',
+				//     updatedAt: '2025-02-24T00:42:51.002Z',
+				// }`,
+				// 					},
+				// 				];
+				// localStorage.setItem('request', JSON.stringify(requestObj));
+
+				// window.location.reload();
 
 				return;
 			} catch (error: any) {
@@ -203,6 +207,7 @@ function RequestBuilder() {
 								}
 							/>
 							<button
+								type='button'
 								onClick={addHeader}
 								className='content-box-button'
 							>

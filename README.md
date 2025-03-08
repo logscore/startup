@@ -78,3 +78,5 @@ functionality of CURL so you can make and analyze requests to your endpoint.
 
 -   Use openstatus as the external service. Make it be a tile on the page that
     is the "status" thing.
+-   Fetch requests for the user account on the account page
+-   

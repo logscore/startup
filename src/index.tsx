@@ -1,14 +1,15 @@
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './home/Home';
-import AccountPage from './account/AccountPage';
+import Home from './app/home/Home';
+import AccountPage from './app/account/AccountPage';
 import '../styles/dashboard_style.css';
-import Login from './login/Login';
-import ErrorPage from './error/ErrorPage';
-import useToken from '../lib/login';
+import Login from './app/login/Login';
+import ErrorPage from './app/error/ErrorPage';
+// import useToken from '../lib/auth';
+import { useState } from 'react';
 
 function App() {
-	const { token, setToken } = useToken();
+	const [token, setToken] = useState();
 
 	if (!token) {
 		return <Login setToken={setToken} />;
@@ -16,10 +17,12 @@ function App() {
 
 	return (
 		<Router>
-			{' '}
 			<Routes>
 				<Route path='/' element={<Home />} />
-				<Route path='/account' element={<AccountPage />} />
+				<Route
+					path='/account'
+					element={<AccountPage setToken={setToken} />}
+				/>
 				<Route path='*' element={<ErrorPage />} />
 			</Routes>
 		</Router>

@@ -40,7 +40,7 @@ function RequestExplorer(data: any) {
 				<div className='request-explorer-body'>
 					<pre className='code-placeholder'>
 						{rowData ? (
-							<code>{rowData.curl}</code>
+							<code>{rowData.curlRequest}</code>
 						) : (
 							<p style={{ margin: '0rem' }}>
 								No request available

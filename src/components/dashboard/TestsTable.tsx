@@ -39,16 +39,31 @@ function TestsExplorer() {
 			method: string;
 			headers: { key: string; value: string }[];
 			body: string;
-			statusCode: string;
+			responseCode: string;
+			curlRequest: string;
+			curlResponse: string;
 		}[]
 	>([]);
 	const [selectedTest, setSelectedTest] = useState<number | undefined>();
 
 	useEffect(() => {
-		const request: string | null = localStorage.getItem('request');
-		const requestJSON = request ? JSON.parse(request) : null;
+		const fetchData = async () => {
+			try {
+				const response = await fetch('http://localhost:4000/req', {
+					method: 'GET',
+				});
+				if (!response.ok) {
+					throw new Error(`HTTP error! Status: ${response.status}`);
+				}
+				const responseJSON = await response.json();
+				console.log(responseJSON);
+				setRows(responseJSON);
+			} catch (error) {
+				console.error('Fetch error:', error);
+			}
+		};
 
-		setRows(requestJSON);
+		fetchData();
 	}, []);
 
 	return (
@@ -88,11 +103,11 @@ function TestsExplorer() {
 											style={{
 												backgroundColor:
 													statusCodeColor(
-														row.statusCode[0],
+														row.responseCode[0],
 													),
 											}}
 										>
-											{row.statusCode}
+											{row.responseCode}
 										</div>
 									</div>
 								</div>
