@@ -12,7 +12,7 @@ app.use(express.static('public'));
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 const users: { email: string; password: string; token: string }[] = [
 	// {
-	// 	email: 'test',
+	// 	email: 'admin@borea.dev',
 	// 	password:
 	// 		'$2b$10$KV3tsOHRDv9c3ySNseleUuFbVHX/WApGmjEkGLox81YZtodFxc.WK',
 	// 	token: '',
@@ -36,27 +36,27 @@ app.get('/pulse', (req, res) => {
 });
 
 app.post('/auth/signup', async (req, res) => {
-	if (await findUser(users, 'email', req.body.email)) {
-		res.status(401).send({ message: 'User already exists' });
-	} else {
+	const userCheck = await findUser(users, 'email', req.body.email);
+
+	if (!userCheck) {
 		const user = await createUser(req.body.email, req.body.password);
 
 		setAuthCookie(res, user.token);
-		res.send({ status: 200, token: user.token });
+		res.send({ token: user.token });
+	} else {
+		res.status(401).send({ msg: 'User already exists' });
 	}
 });
 
 app.post('/auth/login', async (req, res) => {
-	console.log(users);
 	const user = await findUser(users, 'email', req.body.email);
-	console.log(user);
 
 	// There has to be a cleaner way to do this. Maybe with a try-catch.
 	if (user) {
 		if (await bcrypt.compare(req.body.password, user.password)) {
 			user.token = uuid();
 			setAuthCookie(res, user.token);
-			res.send({ code: 200 });
+			res.send({ token: user.token });
 		} else {
 			res.status(401).send({ msg: 'Invalid password' });
 		}
@@ -84,7 +84,6 @@ app.post('/curl', (req, res) => {
 			if (headers && Array.isArray(headers)) {
 				headers.forEach(header => {
 					curlRequest += ` -H "${header.key}: ${header.value}"`;
-					console.log(curlRequest);
 				});
 			}
 		}
@@ -97,7 +96,6 @@ app.post('/curl', (req, res) => {
 		}
 
 		curlRequest += ` ${url}${endpoint}`;
-		console.log('Curl Command:', curlRequest);
 
 		try {
 			exec(curlRequest, (error, stdout, stderr) => {
@@ -129,7 +127,6 @@ app.post('/curl', (req, res) => {
 					curlRequest,
 					curlResponse,
 				});
-				console.log(requests);
 
 				// Send the curl response to the client
 				res.json({
@@ -145,14 +142,12 @@ app.post('/curl', (req, res) => {
 // I want an endpoint that queries the last 10 queries by date made. The data should then be cached/available for when the button is clicked on the fronend and the request/response is displayed on the explorer
 
 app.get('/req', (req, res) => {
-	console.log(requests);
 	res.status(200).json(requests);
 });
 
 // i want to move these to a separate auth tools file in /lib
 async function createUser(email: string, password: string) {
 	const passwordHash = await bcrypt.hash(password, 10);
-	console.log(passwordHash);
 
 	//will implement a create in the db later
 	const user: { email: string; password: string; token: string } = {
@@ -178,8 +173,9 @@ async function findUser(
 function setAuthCookie(res, authToken) {
 	res.cookie(authCookieName, authToken, {
 		secure: true,
-		httpOnly: true,
+		httpOnly: false,
 		sameSite: 'strict',
+		maxAge: 24 * 60 * 60 * 1000,
 	});
 }
 

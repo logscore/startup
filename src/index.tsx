@@ -6,10 +6,19 @@ import '../styles/dashboard_style.css';
 import Login from './app/login/Login';
 import ErrorPage from './app/error/ErrorPage';
 // import useToken from '../lib/auth';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import Cookies from 'js-cookie';
 
 function App() {
-	const [token, setToken] = useState();
+	const [token, setToken] = useState<string | null>(null);
+
+	useEffect(() => {
+		const tokenCookie = Cookies.get('token');
+
+		if (tokenCookie) {
+			setToken(tokenCookie);
+		}
+	}, []);
 
 	if (!token) {
 		return <Login setToken={setToken} />;

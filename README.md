@@ -79,4 +79,15 @@ functionality of CURL so you can make and analyze requests to your endpoint.
 -   Use openstatus as the external service. Make it be a tile on the page that
     is the "status" thing.
 -   Fetch requests for the user account on the account page
--   
+-
+
+### Known bugs
+
+-   The first item in the test explorer doesnt render the reuqest/response
+-   I cant pass the setToken into hte account page component to use in the
+    signing out without the app displaying the sign in page, meaning it must be
+    resetting the token in state and rerendering
+-   Styling still doesn't look good on smaller screens
+-   The test table should rerender when i get the result back. It doesnt and i
+    have to reload to display
+-   The request explorer shouldnt extend so far on long queries

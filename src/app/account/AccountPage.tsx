@@ -2,11 +2,11 @@ import Footer from '../../components/layout/Footer';
 import Navbar from '../../components/layout/Navbar';
 import '/styles/account_style.css';
 
-// interface LoginProps {
-// 	setToken: (userToken: { token: string }) => void;
-// }
+interface LoginProps {
+	setToken: React.Dispatch<React.SetStateAction<string | null>>;
+}
 
-function AccountPage({ setToken }) {
+function AccountPage({ setToken }: LoginProps) {
 	return (
 		<div className='page-container'>
 			<>
@@ -15,7 +15,7 @@ function AccountPage({ setToken }) {
 					<p>youremail@website.com</p>
 					<button
 						className='signout_button'
-						onClick={setToken({ token: '' })}
+						onClick={() => setToken(null)}
 					>
 						Sign out
 					</button>

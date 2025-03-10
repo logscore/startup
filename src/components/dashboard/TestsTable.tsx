@@ -56,7 +56,6 @@ function TestsExplorer() {
 					throw new Error(`HTTP error! Status: ${response.status}`);
 				}
 				const responseJSON = await response.json();
-				console.log(responseJSON);
 				setRows(responseJSON);
 			} catch (error) {
 				console.error('Fetch error:', error);

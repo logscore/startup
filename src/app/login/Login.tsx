@@ -10,75 +10,43 @@ interface Credentials {
 	password: string;
 }
 
-async function loginUser(credentials: Credentials) {
-	try {
-		const response = await fetch('http://localhost:4000/auth/login', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(credentials),
-			credentials: 'include',
-		});
-
-		if (!response.ok) {
-			throw new Error('Invalid login credentials');
-		}
-
-		return await response.json();
-	} catch (error: any) {
-		console.error('Error logging in:', error);
-		throw error;
-	}
+interface LoginProps {
+	setToken: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
-async function signupUser(credentials: Credentials) {
-	try {
-		const response = await fetch('http://localhost:4000/auth/signup', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(credentials),
-			credentials: 'include',
-		});
+async function authUser(credentials: Credentials, route: string) {
+	const response = await fetch(`http://localhost:4000/auth/${route}`, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(credentials),
+		credentials: 'include',
+	});
 
-		if (!response.ok) {
-			return response;
-		} else {
-			return await response.json();
-		}
-	} catch (error: any) {
-		console.error('Error logging in:', error);
-		throw error;
+	if (!response.ok) {
+		const data = await response.json();
+		throw new Error(data.msg);
 	}
+	return await response.json();
 }
 
-function Login({ setToken }) {
+function Login({ setToken }: LoginProps) {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [error, setError] = useState('');
 	const [tab, setTab] = useState(1);
 
-	const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+	const handleAuth = async (
+		e: React.FormEvent<HTMLFormElement>,
+		route: string,
+	) => {
 		e.preventDefault();
 		setError('');
 
 		try {
-			const token = await loginUser({ email, password });
-			setToken(token) ? token : null;
-		} catch (error: any) {
-			setError(error.message);
-		}
-	};
-
-	const handleSignup = async (e: React.FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
-		setError('');
-
-		try {
-			const token = await signupUser({ email, password });
-			setToken(token);
+			const token = await authUser({ email, password }, route);
+			token ? setToken(token) : null;
 		} catch (error: any) {
 			setError(error.message);
 		}
@@ -109,7 +77,10 @@ function Login({ setToken }) {
 				</button>
 			</div>
 			{tab === 1 ? (
-				<form onSubmit={handleSignup} className='auth_box'>
+				<form
+					onSubmit={e => handleAuth(e, 'signup')}
+					className='auth_box'
+				>
 					<div className='welcome_text'>
 						<span className='emoji'>🦊</span>
 						<h1 className='auth_title'>Hey there!</h1>
@@ -155,7 +126,10 @@ function Login({ setToken }) {
 					</button>
 				</form>
 			) : (
-				<form onSubmit={handleLogin} className='auth_box'>
+				<form
+					onSubmit={e => handleAuth(e, 'login')}
+					className='auth_box'
+				>
 					<div className='welcome_text'>
 						<span className='emoji'>🦊</span>
 						<h1 className='auth_title'>Welcome back!</h1>

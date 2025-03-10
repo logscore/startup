@@ -44,7 +44,6 @@ function RequestBuilder() {
 					headers: headers,
 					body: body,
 				};
-				console.log(requestBody);
 				const response = await fetch('http://localhost:4000/curl', {
 					method: 'POST',
 					headers: {
@@ -53,7 +52,6 @@ function RequestBuilder() {
 					body: JSON.stringify(requestBody),
 				});
 
-				console.log(response);
 
 				if (!response.ok) {
 					throw new Error(
