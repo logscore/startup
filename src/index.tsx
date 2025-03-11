@@ -5,7 +5,6 @@ import AccountPage from './app/account/AccountPage';
 import '../styles/dashboard_style.css';
 import Login from './app/login/Login';
 import ErrorPage from './app/error/ErrorPage';
-// import useToken from '../lib/auth';
 import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 

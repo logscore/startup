@@ -3,6 +3,7 @@ import bcrypt from 'bcrypt';
 import { v6 as uuid } from 'uuid';
 import cookieParser from 'cookie-parser';
 import { exec } from 'child_process';
+import { request } from 'http';
 
 const app = express();
 app.use(express.json());
@@ -95,7 +96,7 @@ app.post('/curl', (req, res) => {
 			curlRequest += ` -d ${JSON.stringify(body)}`;
 		}
 
-		curlRequest += ` ${url}${endpoint}`;
+		curlRequest += ` https://${url}${endpoint}`;
 
 		try {
 			exec(curlRequest, (error, stdout, stderr) => {

@@ -14,7 +14,7 @@ interface LoginProps {
 	setToken: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
-async function authUser(credentials: Credentials, route: string) {
+async function authenticateUser(credentials: Credentials, route: string) {
 	const response = await fetch(`http://localhost:4000/auth/${route}`, {
 		method: 'POST',
 		headers: {
@@ -45,7 +45,7 @@ function Login({ setToken }: LoginProps) {
 		setError('');
 
 		try {
-			const token = await authUser({ email, password }, route);
+			const token = await authenticateUser({ email, password }, route);
 			token ? setToken(token) : null;
 		} catch (error: any) {
 			setError(error.message);

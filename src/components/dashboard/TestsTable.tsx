@@ -31,7 +31,7 @@ function statusCodeColor(value: string) {
 	}
 }
 
-function TestsExplorer() {
+function TestsExplorer(refreshTrigger: any) {
 	const [rows, setRows] = useState<
 		{
 			url: string;
@@ -63,7 +63,7 @@ function TestsExplorer() {
 		};
 
 		fetchData();
-	}, []);
+	}, [refreshTrigger]);
 
 	return (
 		<>

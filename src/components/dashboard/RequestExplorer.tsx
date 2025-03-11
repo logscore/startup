@@ -4,9 +4,10 @@ function RequestExplorer(data: any) {
 	const [tab, setTab] = useState(1);
 
 	const selectedTestIndex = data.data.selectedTest;
-	const testIndex = selectedTestIndex ? selectedTestIndex : null;
+	const testIndex = selectedTestIndex ? selectedTestIndex : 0;
 
 	const rows = data.data.rows;
+
 	const row = rows ? rows[testIndex] : null;
 	const rowData = row ? row : null;
 
