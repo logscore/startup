@@ -49,9 +49,12 @@ function TestsExplorer(refreshTrigger: any) {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await fetch('http://localhost:4000/req', {
-					method: 'GET',
-				});
+				const response = await fetch(
+					'https://startup.demodel.click/req',
+					{
+						method: 'GET',
+					},
+				);
 				if (!response.ok) {
 					throw new Error(`HTTP error! Status: ${response.status}`);
 				}

@@ -48,13 +48,16 @@ function RequestBuilder({ triggerRefresh }: refreshProp) {
 					headers: headers,
 					body: body,
 				};
-				const response = await fetch('http://localhost:4000/curl', {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
+				const response = await fetch(
+					'https://startup.demodel.click/curl',
+					{
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+						},
+						body: JSON.stringify(requestBody),
 					},
-					body: JSON.stringify(requestBody),
-				});
+				);
 
 				if (!response.ok) {
 					throw new Error(

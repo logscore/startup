@@ -15,14 +15,17 @@ interface LoginProps {
 }
 
 async function authenticateUser(credentials: Credentials, route: string) {
-	const response = await fetch(`http://localhost:4000/auth/${route}`, {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
+	const response = await fetch(
+		`https://startup.demodel.click/auth/${route}`,
+		{
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(credentials),
+			credentials: 'include',
 		},
-		body: JSON.stringify(credentials),
-		credentials: 'include',
-	});
+	);
 
 	if (!response.ok) {
 		const data = await response.json();
@@ -87,7 +90,7 @@ function Login({ setToken }: LoginProps) {
 						<p>Ready to make sure your API works?</p>
 					</div>
 					<div className='email'>
-						<label>Email</label>
+						<label>Email (dev@test.com)</label>
 						<input
 							value={email}
 							type='email'
@@ -99,7 +102,7 @@ function Login({ setToken }: LoginProps) {
 						/>
 					</div>
 					<div className='password'>
-						<label>Password</label>
+						<label>Password (password)</label>
 						<input
 							value={password}
 							type='password'

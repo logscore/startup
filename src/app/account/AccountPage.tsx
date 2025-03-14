@@ -1,27 +1,36 @@
 import Footer from '../../components/layout/Footer';
 import Navbar from '../../components/layout/Navbar';
 import '/styles/account_style.css';
+import Cookies from 'js-cookie';
 
 interface LoginProps {
 	setToken: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
+// Fix: Accept the correct type for setToken
+function handleSignout(
+	setToken: React.Dispatch<React.SetStateAction<string | null>>,
+) {
+	console.log('Before removal:', Cookies.get('token'));
+	Cookies.remove('token');
+	console.log('After removal:', Cookies.get('token'));
+	setToken(null);
+}
+
 function AccountPage({ setToken }: LoginProps) {
 	return (
 		<div className='page-container'>
-			<>
-				<Navbar />
-				<div className='account-box'>
-					<p>youremail@website.com</p>
-					<button
-						className='signout_button'
-						onClick={() => setToken(null)}
-					>
-						Sign out
-					</button>
-				</div>
-				<Footer />
-			</>
+			<Navbar />
+			<div className='account-box'>
+				<p>youremail@website.com</p>
+				<button
+					className='signout_button'
+					onClick={() => handleSignout(setToken)}
+				>
+					Sign out
+				</button>
+			</div>
+			<Footer />
 		</div>
 	);
 }

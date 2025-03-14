@@ -1,37 +1,37 @@
-import express from 'express';
-import bcrypt from 'bcrypt';
-import { v6 as uuid } from 'uuid';
-import cookieParser from 'cookie-parser';
-import { exec } from 'child_process';
-import { request } from 'http';
+const express = require('express');
+const bcrypt = require('bcrypt');
+const { v6: uuid } = require('uuid');
+const cookieParser = require('cookie-parser');
+const { exec } = require('child_process');
+const cors = require('cors');
 
 const app = express();
+// app.use(
+// 	cors({
+// 		origin: 'https://startup.demodel.click',
+// 		methods: ['GET', 'POST', 'PUT', 'DELETE'],
+// 		allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+// 		credentials: true,
+// 	}),
+// );
+// app.options('*', cors());
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.static('public'));
 
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
-const users: { email: string; password: string; token: string }[] = [
-	// {
-	// 	email: 'admin@borea.dev',
-	// 	password:
-	// 		'$2b$10$KV3tsOHRDv9c3ySNseleUuFbVHX/WApGmjEkGLox81YZtodFxc.WK',
-	// 	token: '',
-	// },
+const users = [
+	{
+		email: 'dev@test.com',
+		password:
+			'$2b$10$KV3tsOHRDv9c3ySNseleUuFbVHX/WApGmjEkGLox81YZtodFxc.WK',
+		token: '',
+	},
 ];
 const authCookieName = 'token';
-const requests: {
-	url: string;
-	endpoint: string;
-	method: string;
-	headers: { key: string; value: string }[];
-	body: string;
-	responseCode: string;
-	curlRequest: string;
-	curlResponse: string;
-}[] = [];
+const requests = [];
 
-// This is the server health route for OpenStatus
+// This is the server health route to see if its busted
 app.get('/pulse', (req, res) => {
 	res.status(200).send({ msg: 'Still alive, sucker' });
 });
@@ -52,7 +52,6 @@ app.post('/auth/signup', async (req, res) => {
 app.post('/auth/login', async (req, res) => {
 	const user = await findUser(users, 'email', req.body.email);
 
-	// There has to be a cleaner way to do this. Maybe with a try-catch.
 	if (user) {
 		if (await bcrypt.compare(req.body.password, user.password)) {
 			user.token = uuid();
@@ -117,7 +116,6 @@ app.post('/curl', (req, res) => {
 				const curlResponse = stdout.slice(0, -3);
 				const responseCode = stdout.slice(-3);
 
-				// Save body to DB with the formatted curl request, curl response code, and request response.
 				requests.push({
 					url,
 					endpoint,
@@ -129,7 +127,6 @@ app.post('/curl', (req, res) => {
 					curlResponse,
 				});
 
-				// Send the curl response to the client
 				res.json({
 					response: [curlRequest, curlResponse, responseCode],
 				});
@@ -140,18 +137,14 @@ app.post('/curl', (req, res) => {
 	}
 });
 
-// I want an endpoint that queries the last 10 queries by date made. The data should then be cached/available for when the button is clicked on the fronend and the request/response is displayed on the explorer
-
 app.get('/req', (req, res) => {
 	res.status(200).json(requests);
 });
 
-// i want to move these to a separate auth tools file in /lib
-async function createUser(email: string, password: string) {
+async function createUser(email, password) {
 	const passwordHash = await bcrypt.hash(password, 10);
 
-	//will implement a create in the db later
-	const user: { email: string; password: string; token: string } = {
+	const user = {
 		email: email,
 		password: passwordHash,
 		token: uuid(),
@@ -161,11 +154,7 @@ async function createUser(email: string, password: string) {
 	return user;
 }
 
-async function findUser(
-	users: { email: string; password: string; token: string }[],
-	field: string,
-	value: string,
-) {
+async function findUser(users, field, value) {
 	if (!value) return null;
 
 	return users.find(u => u[field] === value);
