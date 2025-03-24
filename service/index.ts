@@ -4,7 +4,7 @@ import { v6 as uuid } from 'uuid';
 import cookieParser from 'cookie-parser';
 import { exec } from 'child_process';
 import cors from 'cors';
-import { createUser, findUser, getItems, insertItem, ping } from '../lib/mongo';
+import { createUser, findUser, getItems, insertItem, ping } from './mongo';
 
 interface User {
 	email: string;
