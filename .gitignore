@@ -1,8 +1,10 @@
 # Custom
 private_notes.md
 package-lock.json
+bun.lock
 mock
 lib/db_schema.json
+build
 
 # Logs
 logs

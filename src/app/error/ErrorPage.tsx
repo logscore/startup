@@ -27,10 +27,7 @@ const ErrorPage = () => {
 		<div className='neofetch-container'>
 			<div className='neofetch-content'>
 				<div className='neofetch-wrapper'>
-					<img
-						src='/assets/kanna-confused.png'
-						style={{ width: '400px', height: '400px' }}
-					></img>
+					<img src='/assets/kanna-confused.png' style={{ width: '400px', height: '400px' }}></img>
 
 					<div className='info-section'>
 						<div className='header'>
@@ -73,15 +70,11 @@ const ErrorPage = () => {
 
 						<div className='message'>
 							<p>
-								Kanna couldn't find the page you're looking for.
-								I hear going back and trying again works
-								sometimes. ¯\_(ツ)_/¯
+								Kanna couldn't find the page you're looking for. I hear going back and trying again
+								works sometimes. ¯\_(ツ)_/¯
 							</p>
 							<div className='return-line'>
-								<button
-									onClick={() => navigate(-1)}
-									className='error-link'
-								>
+								<button onClick={() => navigate(-1)} className='error-link'>
 									$ cd ..
 									<span className='cursor'></span>
 								</button>

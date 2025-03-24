@@ -1,53 +1,53 @@
 #root {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
 }
 
 body {
-    font-family: 'Courier New', Courier, monospace;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
+	font-family: 'Courier New', Courier, monospace;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
 }
 
 .page-container {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
 }
 
 .account-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    flex-grow: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	flex-grow: 1;
 }
 
 .signout_button {
-    cursor: pointer;
-    height: 3rem;
-    width: 7rem;
-    background-color: transparent;
-    border: 3px solid #e40000;
-    border-radius: 0.25rem;
-    color: #e40000;
-    font-size: 1rem;
-    font-weight: 700;
-    transition: 0.5s;
+	cursor: pointer;
+	height: 3rem;
+	width: 7rem;
+	background-color: transparent;
+	border: 3px solid #e40000;
+	border-radius: 0.25rem;
+	color: #e40000;
+	font-size: 1rem;
+	font-weight: 700;
+	transition: 0.5s;
 }
 
 .signout_button:hover {
-    background-color: #e40000;
-    color: #ffffff;
-    border: transparent;
+	background-color: #e40000;
+	color: #ffffff;
+	border: transparent;
 }
 
 footer {
-    background-color: #252525;
-    color: #888;
-    text-align: center;
-    padding: 2px;
-    border-top: 1px solid #333;
+	background-color: #252525;
+	color: #888;
+	text-align: center;
+	padding: 2px;
+	border-top: 1px solid #333;
 }

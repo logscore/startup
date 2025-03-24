@@ -1,6 +1,11 @@
 import { useEffect, useState } from 'react';
 import RequestExplorer from './RequestExplorer';
 
+const dev = (import.meta as ImportMeta & { env: { DEV: boolean } }).env.DEV;
+
+const prodUrl = `https://startup.demodel.click/req`;
+const devUrl = `http://localhost:4000/req`;
+
 // ! The tests table will be have a websocket that will listen to updates from a specific collection in the db and refresh when updated.
 
 function methodColor(value: string) {
@@ -49,12 +54,9 @@ function TestsExplorer(refreshTrigger: any) {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await fetch(
-					'https://startup.demodel.click/req',
-					{
-						method: 'GET',
-					},
-				);
+				const response = await fetch(dev ? devUrl : prodUrl, {
+					method: 'GET',
+				});
 				if (!response.ok) {
 					throw new Error(`HTTP error! Status: ${response.status}`);
 				}
@@ -86,9 +88,7 @@ function TestsExplorer(refreshTrigger: any) {
 										<div className='cell'>
 											<div
 												style={{
-													border: methodColor(
-														row.method,
-													),
+													border: methodColor(row.method),
 												}}
 												className='row-method'
 											>
@@ -103,10 +103,7 @@ function TestsExplorer(refreshTrigger: any) {
 										<div
 											className='response-code'
 											style={{
-												backgroundColor:
-													statusCodeColor(
-														row.responseCode[0],
-													),
+												backgroundColor: statusCodeColor(row.responseCode[0]),
 											}}
 										>
 											{row.responseCode}
@@ -117,8 +114,7 @@ function TestsExplorer(refreshTrigger: any) {
 						})
 					) : (
 						<p style={{ margin: '1rem' }}>
-							No tests to explore! Begin by sending your first
-							endpoint request!
+							No tests to explore! Begin by sending your first endpoint request!
 						</p>
 					)}
 				</div>

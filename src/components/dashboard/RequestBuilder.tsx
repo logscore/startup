@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 
+const dev = (import.meta as ImportMeta & { env: { VITE_PROD: boolean } }).env.VITE_PROD;
+const prodUrl = `https://startup.demodel.click/curl`;
+const devUrl = `http://localhost:4000/curl`;
+
 interface refreshProp {
 	triggerRefresh: () => void;
 }
@@ -48,21 +52,17 @@ function RequestBuilder({ triggerRefresh }: refreshProp) {
 					headers: headers,
 					body: body,
 				};
-				const response = await fetch(
-					'https://startup.demodel.click/curl',
-					{
-						method: 'POST',
-						headers: {
-							'Content-Type': 'application/json',
-						},
-						body: JSON.stringify(requestBody),
+
+				const response = await fetch(dev ? devUrl : prodUrl, {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
 					},
-				);
+					body: JSON.stringify(requestBody),
+				});
 
 				if (!response.ok) {
-					throw new Error(
-						'An error has occured while making request',
-					);
+					throw new Error('An error has occured while making request');
 				}
 
 				triggerRefresh();
@@ -103,11 +103,7 @@ function RequestBuilder({ triggerRefresh }: refreshProp) {
 					</div>
 					<div className='method'>
 						<h3>Method</h3>
-						<select
-							className='method-selector'
-							value={method}
-							onChange={e => setMethod(e.target.value)}
-						>
+						<select className='method-selector' value={method} onChange={e => setMethod(e.target.value)}>
 							<option value='GET'>GET</option>
 							<option value='POST'>POST</option>
 							<option value='PUT'>PUT</option>
@@ -129,32 +125,16 @@ function RequestBuilder({ triggerRefresh }: refreshProp) {
 									type='text'
 									placeholder='Header Key'
 									value={header.key}
-									onChange={e =>
-										updateHeader(
-											index,
-											'key',
-											e.target.value,
-										)
-									}
+									onChange={e => updateHeader(index, 'key', e.target.value)}
 								/>
 								<input
 									className='input-box'
 									type='text'
 									placeholder='Header Value'
 									value={header.value}
-									onChange={e =>
-										updateHeader(
-											index,
-											'value',
-											e.target.value,
-										)
-									}
+									onChange={e => updateHeader(index, 'value', e.target.value)}
 								/>
-								<button
-									type='button'
-									onClick={addHeader}
-									className='content-box-button'
-								>
+								<button type='button' onClick={addHeader} className='content-box-button'>
 									+
 								</button>
 							</div>
@@ -162,10 +142,7 @@ function RequestBuilder({ triggerRefresh }: refreshProp) {
 					</div>
 					<div className='request-body'>
 						<h3>Request Body</h3>
-						<textarea
-							placeholder='{ "key": "value" }'
-							onChange={e => setBody(e.target.value)}
-						/>
+						<textarea placeholder='{ "key": "value" }' onChange={e => setBody(e.target.value)} />
 					</div>
 					{/* TODO: This page refrest will be replaced with a websocket listener for the db to see when new entries are made */}
 					<button type='submit' className='save-button'>

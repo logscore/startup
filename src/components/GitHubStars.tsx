@@ -7,9 +7,7 @@ export default function GithubStars() {
 		fetch('https://api.github.com/repos/logscore/startup')
 			.then(response => response.json())
 			.then(data => setStars(data.stargazers_count))
-			.catch(error =>
-				console.error('Error fetching GitHub stars:', error),
-			);
+			.catch(error => console.error('Error fetching GitHub stars:', error));
 	}, []);
 
 	return (
@@ -36,12 +34,8 @@ export default function GithubStars() {
 					fontSize: '16px',
 					fontWeight: '500',
 				}}
-				onMouseEnter={e =>
-					(e.currentTarget.style.borderColor = ' #ffd700')
-				}
-				onMouseLeave={e =>
-					(e.currentTarget.style.borderColor = ' #1e1e1e')
-				}
+				onMouseEnter={e => (e.currentTarget.style.borderColor = ' #ffd700')}
+				onMouseLeave={e => (e.currentTarget.style.borderColor = ' #1e1e1e')}
 			>
 				<img
 					src='https://www.svgrepo.com/show/493677/github-repo-git-octocat.svg'

@@ -1,90 +1,90 @@
 h1 {
-    color: #ffd700;
+	color: #ffd700;
 }
 
 .auth_container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 100vh;
 }
 
 .auth_box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 25rem;
-    height: 25rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 25rem;
+	height: 25rem;
 }
 
 .emoji {
-    font-size: 3rem;
+	font-size: 3rem;
 }
 
 .welcome_text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .email {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-bottom: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-bottom: 0.5rem;
 }
 
 .signin-box {
-    height: 2rem;
-    background-color: #1a1a1a;
-    color: #fff;
-    border: 1px solid #333;
-    border-radius: 4px;
-    outline: none;
-    margin: 0.25rem;
-    width: 300px;
-    padding-left: 8px;
+	height: 2rem;
+	background-color: #1a1a1a;
+	color: #fff;
+	border: 1px solid #333;
+	border-radius: 4px;
+	outline: none;
+	margin: 0.25rem;
+	width: 300px;
+	padding-left: 8px;
 }
 
 .email label {
-    font-weight: 600;
+	font-weight: 600;
 }
 
 .password {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-bottom: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-bottom: 0.5rem;
 }
 
 .password label {
-    font-weight: 600;
+	font-weight: 600;
 }
 
 .auth_title {
-    margin: 0;
+	margin: 0;
 }
 
 .signin_button {
-    padding: 0.5rem;
-    width: 7rem;
-    height: 2.5rem;
-    color: #1a1a1a;
-    background-color: #ffd700;
-    border: 1px solid #ffd700;
-    border-radius: 0.25rem;
-    font-weight: 800;
-    cursor: pointer;
-    transition: 0.25s;
+	padding: 0.5rem;
+	width: 7rem;
+	height: 2.5rem;
+	color: #1a1a1a;
+	background-color: #ffd700;
+	border: 1px solid #ffd700;
+	border-radius: 0.25rem;
+	font-weight: 800;
+	cursor: pointer;
+	transition: 0.25s;
 }
 
 footer {
-    background-color: #252525;
-    color: #888;
-    text-align: center;
-    padding: 2px;
-    border-top: 1px solid #333;
+	background-color: #252525;
+	color: #888;
+	text-align: center;
+	padding: 2px;
+	border-top: 1px solid #333;
 }

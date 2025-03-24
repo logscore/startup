@@ -5,17 +5,22 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
+		"server": "bun --hot run service/index.ts",
 		"build": "tsc -b && vite build",
 		"lint": "eslint .",
 		"preview": "vite preview",
-		"deploy": "sudo ./deployReact.sh -k ~/.ssh/cs260-startup-logan.pem -h demodel.click -s startup"
+		"deploy:React": "sudo ./deployReact.sh -k ~/.ssh/cs260-startup-logan.pem -h demodel.click -s startup",
+		"deploy:Service": "sudo ./deployService.sh -k ~/.ssh/cs260-startup-logan.pem -h demodel.click -s startup"
 	},
 	"dependencies": {
+		"bcrypt": "^5.1.1",
 		"cookie-parser": "^1.4.7",
 		"js-cookie": "^3.0.5",
+		"mongodb": "^6.15.0",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0",
-		"react-router-dom": "^7.1.5"
+		"react-router-dom": "^7.1.5",
+		"uuid": "^11.1.0"
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.19.0",

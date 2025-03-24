@@ -43,9 +43,7 @@ function RequestExplorer(data: any) {
 						{rowData ? (
 							<code>{rowData.curlRequest}</code>
 						) : (
-							<p style={{ margin: '0rem' }}>
-								No request available
-							</p>
+							<p style={{ margin: '0rem' }}>No request available</p>
 						)}
 					</pre>
 				</div>
@@ -55,9 +53,7 @@ function RequestExplorer(data: any) {
 						{rowData ? (
 							<code>{rowData.curlResponse}</code>
 						) : (
-							<p style={{ margin: '0rem' }}>
-								No response available
-							</p>
+							<p style={{ margin: '0rem' }}>No response available</p>
 						)}
 					</pre>
 				</div>

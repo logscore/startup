@@ -6,9 +6,8 @@ startup project for cs260, and also real pivot for my startup lol
 
 ## The Pitch
 
-Testing endpoints is becoming too complex. We dont need Postman or any of these
-crazy tools. You just need CURL. So this is what it is. This is a GUI for base
-functionality of CURL so you can make and analyze requests to your endpoint.
+Testing endpoints is becoming too complex. We dont need Postman or any of these crazy tools. You just need CURL. So this
+is what it is. This is a GUI for base functionality of CURL so you can make and analyze requests to your endpoint.
 
 ## Key Features
 
@@ -16,25 +15,19 @@ functionality of CURL so you can make and analyze requests to your endpoint.
 
 ## Technology Breakdown
 
--   HTML: Will have three to four HTML pages. One auth, one to input a yaml
-    file, another that lets you review the generated types and docs (and logic),
-    one to package it to your package repo of choice.
--   CSS: Used to style the webpages using folowing a style guide for sizes,
-    spacing, padding, margin, and things like that. Might use M3 or GitHubs
-    Primer system. IDK, we'll see.
--   Javascript (can i use typescript here?): login, displaying dynamic data,
-    display stored requests.
--   React: Build components such as CURL request builder, request analyzer,
-    response analyzer. Used for general routing.
+-   HTML: Will have three to four HTML pages. One auth, one to input a yaml file, another that lets you review the
+    generated types and docs (and logic), one to package it to your package repo of choice.
+-   CSS: Used to style the webpages using folowing a style guide for sizes, spacing, padding, margin, and things like
+    that. Might use M3 or GitHubs Primer system. IDK, we'll see.
+-   Javascript (can i use typescript here?): login, displaying dynamic data, display stored requests.
+-   React: Build components such as CURL request builder, request analyzer, response analyzer. Used for general routing.
 -   Backend:
     -   Login service, probably just hash them.
     -   CURL request handling
     -   request and store requests and responses
-    -   Run a websocket for a db collection to dynamically update the requests
-        table
+    -   Run a websocket for a db collection to dynamically update the requests table
 -   MongoDB: Stores user auth data, CURL requests and responses
--   Websocket: Listening to the DB for changes (new request && response entry)
-    and updates the requests table
+-   Websocket: Listening to the DB for changes (new request && response entry) and updates the requests table
 
 ## Design
 
@@ -44,18 +37,16 @@ functionality of CURL so you can make and analyze requests to your endpoint.
 
 ### HTML:
 
--   I added the html to the site, with a bit of flex box styling because i hate
-    how it looks so much.
+-   I added the html to the site, with a bit of flex box styling because i hate how it looks so much.
 -   Added Github links, and links to the main dashboard page.
 
 ### CSS:
 
 -   I made a bunch of styling
 -   I defined some global variables and dynamic scaling for responsiveness.
--   Responsiveness is weird here because this seriously is NOT meant to be used
-    on a mobile device since it is a developer tool.
--   Styled the dashboard, auth page, account page, models page, and version
-    control page.
+-   Responsiveness is weird here because this seriously is NOT meant to be used on a mobile device since it is a
+    developer tool.
+-   Styled the dashboard, auth page, account page, models page, and version control page.
 
 ### React pt. 1
 
@@ -63,31 +54,32 @@ functionality of CURL so you can make and analyze requests to your endpoint.
 -   Converted html to react
 -   Completely changed my startup idea and the styling
 -   I dont like the way react handles states, but I made the login reactive
--   Added component routing for the only two pages, plus my 404 page (please
-    look at it btw, I really like it https://startup.demodel.click/404)
+-   Added component routing for the only two pages, plus my 404 page (please look at it btw, I really like it
+    https://startup.demodel.click/404)
 -   Added in an npm command to deploy the application automagically
 
 ### React pt. 2
 
 -   Added storage of form info into local storage
--   made the list dynamic in both color and listing data in the bottom request
-    explorer
+-   made the list dynamic in both color and listing data in the bottom request explorer
 -   added checks for data and displaying "no data" defaults
 
 ### Service
 
--   Use openstatus as the external service. Make it be a tile on the page that
-    is the "status" thing.
+-   Use openstatus as the external service. Make it be a tile on the page that is the "status" thing.
 -   Fetch requests for the user account on the account page
 -   TODO: maybe implement a jwt auth flow
 
+### Database
+
+-   Made functions to manage pinging, inserting, and reading data from mongo instance.
+-   Integrated the functions into the express server.
+-   Migrated to Bun so i can run the service in TS.
+-   Added conditional checks for a production environment
+- 
+
 ### Known bugs
 
--   The first item in the test explorer doesnt render the reuqest/response
--   I cant pass the setToken into hte account page component to use in the
-    signing out without the app displaying the sign in page, meaning it must be
-    resetting the token in state and rerendering
 -   Styling still doesn't look good on smaller screens
--   The test table should rerender when i get the result back. It doesnt and i
-    have to reload to display
+-   The test table should rerender when i get the result back. It only does sometimes
 -   The request explorer shouldnt extend so far on long queries

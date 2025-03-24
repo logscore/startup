@@ -19,10 +19,13 @@ printf "\n----> Deploying React bundle $service to $hostname with $key\n"
 printf "\n----> Build the distribution package\n"
 rm -rf build
 mkdir build
-npm install # make sure vite is installed so that we can bundle
-npm run build # build the React front end
+export PATH="$HOME/.bun/bin:$PATH" # Ensure Bun is in the PATH
+
+bun install  # Ensure dependencies are installed
+bun run build  # Build the React front end
+
 cp -rf dist build/public # move the React front end to the target distribution
-cp service/*.js build # move the back end service to the target distribution
+cp service/*.ts build # move the back end service to the target distribution
 cp service/*.json build
 
 # Step 2
@@ -41,7 +44,7 @@ printf "\n----> Deploy the service on the target\n"
 ssh -i "$key" ubuntu@$hostname << ENDSSH
 bash -i
 cd services/${service}
-npm install
+bun install
 pm2 restart ${service}
 ENDSSH
 

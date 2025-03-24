@@ -27,17 +27,12 @@ function App() {
 		<Router>
 			<Routes>
 				<Route path='/' element={<Home />} />
-				<Route
-					path='/account'
-					element={<AccountPage setToken={setToken} />}
-				/>
+				<Route path='/account' element={<AccountPage setToken={setToken} />} />
 				<Route path='*' element={<ErrorPage />} />
 			</Routes>
 		</Router>
 	);
 }
 
-const root = ReactDOM.createRoot(
-	document.getElementById('root') as HTMLElement,
-);
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(<App />);

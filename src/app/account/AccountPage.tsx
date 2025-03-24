@@ -8,12 +8,8 @@ interface LoginProps {
 }
 
 // Fix: Accept the correct type for setToken
-function handleSignout(
-	setToken: React.Dispatch<React.SetStateAction<string | null>>,
-) {
-	console.log('Before removal:', Cookies.get('token'));
+function handleSignout(setToken: React.Dispatch<React.SetStateAction<string | null>>) {
 	Cookies.remove('token');
-	console.log('After removal:', Cookies.get('token'));
 	setToken(null);
 }
 
@@ -23,10 +19,7 @@ function AccountPage({ setToken }: LoginProps) {
 			<Navbar />
 			<div className='account-box'>
 				<p>youremail@website.com</p>
-				<button
-					className='signout_button'
-					onClick={() => handleSignout(setToken)}
-				>
+				<button className='signout_button' onClick={() => handleSignout(setToken)}>
 					Sign out
 				</button>
 			</div>

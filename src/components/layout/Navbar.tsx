@@ -8,20 +8,11 @@ function Navbar() {
 
 	return (
 		<nav className='index_nav'>
-			<h2
-				className='title'
-				onClick={() => navigate('/')}
-				style={{ cursor: 'pointer' }}
-			>
+			<h2 className='title' onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
 				Demodel
 			</h2>
 			<div className='nav_links'>
-				<button
-					onClick={() =>
-						(window.location.href =
-							'https://github.com/logscore/startup')
-					}
-				>
+				<button onClick={() => (window.location.href = 'https://github.com/logscore/startup')}>
 					<Github />
 				</button>
 				<button>
