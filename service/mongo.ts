@@ -2,8 +2,7 @@ import bcrypt from 'bcrypt';
 import { v6 as uuid } from 'uuid';
 
 import { MongoClient, WithId } from 'mongodb';
-const uri =
-	'mongodb+srv://cs260_user:laID0Is39FpJQSOj@cs260.jgb0x.mongodb.net/?retryWrites=true&w=majority&appName=cs260';
+const uri: string = process.env.MONGO;
 
 interface RequestItem {
 	url: string;
